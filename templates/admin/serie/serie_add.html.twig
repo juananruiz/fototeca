@@ -1,0 +1,37 @@
+{% extends "admin/layout_dashboard.html.twig" %}
+{% set title = 'New Serie'|trans %}
+{% set active = 'series' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel">
+                <header class="panel-heading">
+                    <h2>{{ title }}</h2>
+                </header>
+                <div class="panel-body">
+
+                    <form action="{{ path('admin_serie_save') }}" method="post">
+                        <div class="form-group">
+                            <label for="name">{{ 'Name'|trans }}</label>
+                            <input class="form-control" type="text" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">{{ 'Description'|trans }}</label>
+                            <input class="form-control" type="text" name="description">
+                        </div>
+                        <div class="form-group">
+                            <label for="is_jewel">{{ 'Is Jewel'|trans }}</label>
+                            <select class="form-control" name="is_jewel">
+                                <option value="0">{{ 'No'|trans }}</option>
+                                <option value="1">{{ 'Yes'|trans }}</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">{{ 'Save'|trans }}</button>
+                        <button type="reset" class="btn btn-danger">{{ 'Cancel'|trans }}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

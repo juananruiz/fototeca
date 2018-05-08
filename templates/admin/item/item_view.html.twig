@@ -1,0 +1,50 @@
+{% extends "admin/layout_admin.html.twig" %}
+{% set active = 'item' %}
+{% set title = 'Item View'|trans %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-6">
+            <h2>{{ title }}</h2>
+            <p>{{ item.name }}</p>
+            <ul class="slides">
+                {% for image in item.images %}
+                    <li>
+                        <img src="/private_upload/{{ item.id }}/{{ image.fileName }}"/>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="col-lg-6">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>{{ 'Location'|trans }}</th>
+                    <th>{{ 'Conservation'|trans }}</th>
+                    <th>{{ 'Comments'|trans }}</th>
+                    <th>&nbsp;</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for image in item.images %}
+                    <tr>
+                        <td><a href="{{ path('image_view', {'id': image.id}) }}">{{ image.location }}</a></td>
+                        <td>{{ image.conservation }}</td>
+                        <td>{{ image.comments }}</td>
+                        <td><a href="{{ path('image_edit', {'id': image.id} ) }}"><i class="fa fa-pencil"></i></a> ·
+                            <a href="{{ path('image_delete', {'id': image.id, 'itemId': item.id}) }}"><i
+                                        class="fa fa-trash"></i></a></td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="3">{{ 'No images for this item yet'|trans }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <p><a class="btn btn-primary pull-right" role="button" href="{{ path('image_add', {'item_id': item.id}) }}"><i
+                            class="fa fa-plus-circle"></i> {{ 'Add Image'|trans }}</a></p>
+        </div>
+    </div>
+{% endblock %}

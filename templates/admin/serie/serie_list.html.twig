@@ -1,0 +1,61 @@
+{% extends "admin/layout_dashboard.html.twig" %}
+{% set active = 'serie' %}
+{% set title = 'Series List'|trans %}
+
+
+{% block js %}
+    {{ parent() }}
+    <script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="/assets/plugins/datatables/dataTables.responsive.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#datatable').dataTable();
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <header class="panel-heading">
+                    <h2>{{ title }}
+                        <a class="btn btn-primary pull-right" role="button" href="{{ path('admin_serie_add') }}"><i
+                                    class="fa fa-plus-circle"></i> {{ 'New Serie'|trans }}</a>
+                    </h2>
+                </header>
+                <div class="panel-body">
+                    <table id="datatable" class="table table-striped dt-responsive nowrap">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>{{ 'Name'|trans }}</th>
+                            <th>{{ 'Description'|trans }}</th>
+                            <th>{{ 'isJewel'|trans }}</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for serie in series %}
+                            <tr>
+                                <td><a href="{{ path('admin_serie_edit', {'id': serie.id}) }}"
+                                       title="{{ 'Edit Serie'|trans }}"><i class="fa fa-pencil"></i></a></td>
+                                <td>{{ serie.name }}</td>
+                                <td>{{ serie.description }}</td>
+                                <td>{{ serie.isJewel }}</td>
+                                <td><a href="{{ path('admin_serie_delete', {'id':serie.id}) }}"
+                                       title="{{ 'Delete Serie'|trans }}"><i class="fa fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="5">{{ 'No series yet.'|trans }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

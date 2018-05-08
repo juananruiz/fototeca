@@ -1,0 +1,150 @@
+# locales/es.yml
+
+
+# ACTION
+
+Add: Añadir
+Add Author: Añadir Autor
+Add Collection: Añadir Colección
+Add Image: Añadir Imagen
+Add Item: Añadir Objeto
+Add Job: Añadir Profesión
+Add Serie: Añadir Serie
+Cancel: Cancelar
+Delete: Borrar
+Delete Author: Borrar Autor
+Delete Collection: Borrar Colección
+Delete Image: Borrar Imagen
+Delete Item: Borrar Objeto
+Delete Job: Borrar Profesión
+Delete Serie: Borrar Serie
+Edit: Editar
+Edit Author: Editar Autor
+Edit Collection: Editar Colección
+Edit Image: Editar Imagen
+Edit Item: Editar Objeto
+Edit Job: Editar Profesión
+Edit Serie: Editar Serie
+Item Edit: Editar Objeto
+Items List: Lista de Objetos
+Image Edit: Editar Imagen
+Image List: Lista de Imágenes
+Job Edit: Editar Profesión
+Jobs List: Lista de Profesiones
+Medium Edit: Editar Soporte
+Mediums List: Lista de Soportes
+New: Nuevo
+New Author: Nuevo Autor
+New Collection: Nueva Colección
+New Image: Nueva Imagen
+New Item: Nuevo Objeto
+New Job: Nueva Profesión
+New Medium: Nuevo Soporte
+New Person: Nueva Persona
+New Serie: Nueva Serie
+Next: Siguiente
+People List: Lista de personas
+Person Edit: Editar Persona
+Photo Edit: Editar Fotografía
+Previous: Previo
+Return to list: Volver al listado
+Save: Grabar
+Search: Buscar
+Select item: Seleccionar objeto
+Send Message: Enviar mensaje
+Series List: Lista de Series
+Toggle navigation: Conmutar navegación
+Upload image: Subir imagen
+View item page: Ver ficha del objeto
+
+
+# FIELDS AND ENTITIES NAMES
+
+Address: Dirección
+Author: Autor
+Authors: Autores
+Item: Objeto
+Items: Objetos
+Image: Imagen
+Images: Imágenes
+Birth Date: Fecha de nacimiento
+Comments: Comentarios
+Conservation: Estado de conservación
+Country: País
+Created at: Creado el
+Death Date: Fecha de fallecimiento
+Description: Descripción
+Email: Correo
+Email Address: Correo electrónico
+End Date: Fecha Baja
+Fax: Fax
+First Name: Nombre
+ID: ID
+Is Jewel: Es joya
+Job: Profesión
+Jobs: Profesiones
+Last Name: Apellidos
+Locality: Localidad
+Location: Localización
+Mail: Correo
+Medium: Soporte
+Name: Nombre
+People: Personas
+Person: Persona
+Phone: Teléfono
+Photographer: Fotógrafo
+Photographers: Fotógrafos
+Province: Provincia
+Serie: Serie
+Series: Series
+Start Date: Fecha Alta
+User: Usuario
+Users: Usuarios
+
+
+# TITLES & MENUS
+
+Administration: Administración
+Collections: Colecciones
+Configuration: Configuración
+Contact Data: Datos de Contacto
+Contents: Contenidos
+Get in touch!: Mantente en contacto!
+Home: Inicio
+Image Edit: Editar Datos Imagen
+Login: Login
+Logout: Logout
+My profile: Mi Perfil
+Others: Otros
+Person Data Sheet: Ficha Persona
+Personal Data: Datos Personales
+We would love to hear from you: Encantados de escucharte
+
+# MESSAGES
+
+Item has been created: Se ha creado el objeto.
+Item has been updated: Se ha actualizado el objeto
+Image has been created: Se ha creado la imagen
+Image data has been updated: Se han actualizado los datos de la imagen
+Image file has been update: Se ha actualizado el fichero de la imagen
+danger: ERROR
+Job has been created: Se ha creado la profesión
+Job has been updated: Se ha actualizado la profesión
+No items associated: No hay objetos asociados
+No items yet: Todavía no hay objetos
+No jobs defined yet: Todavía no hay profesiones
+No people defined yet: Todavía no hay personas
+No series defined yet: Todavía no hay series
+Please enter a message: Introduzca el texto del mensaje
+Please enter your email address: Por favor, introduzca su correo electrónio
+Please enter your name: Por favor, introduzca su nombre
+Select a job: Seleccione una profesión
+success: CORRECTO
+There is no record for this ID: No hay registro para esta ID
+Undefined: Indefinido
+Unknown author: Autor desconocido
+warning: ATENCIÓN
+
+# VALIDATION
+
+name This value should not be blank. : El nombre no debe estar vacío.

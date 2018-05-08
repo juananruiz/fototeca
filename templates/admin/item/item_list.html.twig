@@ -1,0 +1,55 @@
+{% extends "admin/layout_admin.html.twig" %}
+{% set active = 'item' %}
+{% set title = 'Item List'|trans %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="panel">
+                <header class="panel-heading">
+                    <h2>{{ title }}
+                        <a class="btn btn-primary pull-right" role="button" href="{{ path('item_add') }}"><i
+                                    class="fa fa-plus-circle"></i> {{ 'New Item'|trans }}</a>
+                    </h2>
+                </header>
+                <div class="panel-body">
+                    <table id="datatable" class="table table-striped dt-responsive nowrap">
+                        <thead>
+                        <tr>
+                            <th>{{ 'Name'|trans }}</th>
+                            <th>{{ 'Comments'|trans }}</th>
+                            <th>{{ 'Locality'|trans }}</th>
+                            <th>{{ 'Province'|trans }}</th>
+                            <th>{{ 'Created at'|trans }}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for item in items %}
+                            <tr>
+                                <td><a href="{{ path('item_view_admin', {'id': item.id}) }}"
+                                       title="{{ 'View item page'|trans }}">{{ item.name }}</a></td>
+                                <td>{{ item.comments }}</td>
+                                <td>{{ item.locality }}</td>
+                                <td>{{ item.province }}</td>
+                                <td>{{ item.createdAt|date('d/m/Y'|trans) }}</td>
+                                <td><a href="{{ path('item_edit', {'id': item.id}) }}"
+                                       title="{{ 'Edit Item'|trans }}"><i
+                                                class="fa fa-pencil"></i></a>
+                                    · <a href="{{ path('item_delete', {'id':item.id}) }}"
+                                         title="{{ 'Delete Item'|trans }}"><i
+                                                class="fa fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="5">{{ 'No items yet.'|trans }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div><!-- .panel-body -->
+            </div><!-- .panel -->
+        </div><!-- .col -->
+    </div><!-- .row -->
+{% endblock %}

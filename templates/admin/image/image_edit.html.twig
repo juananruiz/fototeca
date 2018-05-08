@@ -1,0 +1,70 @@
+{% extends "admin/layout_admin.html.twig" %}
+{% set title = 'Image Edit'|trans %}
+{% set active = 'images' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-6">
+            <h2>{{ title }}</h2>
+
+            <form action="{{ path('image_save') }}" method="post" name="imageForm" enctype='multipart/form-data'>
+                <input type="hidden" name="id" value="{{ image.id }}">
+                <input type="hidden" name="itemId" value="{{ image.item.id }}">
+                {#<div class="form-group">#}
+                {#<label for="itemImageFile">{{ 'Select a file'|trans }}</label>#}
+
+                {#<div class="input-group">#}
+                {#<span class="input-group-btn">#}
+                {#<span class="btn btn-primary btn-file">#}
+                {#{{ 'Browse'|trans }}&hellip; <input name="itemImageFile" type="file" multiple>#}
+                {#</span>#}
+                {#</span>#}
+                {#<input type="text" class="form-control" readonly>#}
+                {#</div>#}
+                {#</div>#}
+
+                <div class="form-group">
+                    <label for="comments">{{ 'Comments'|trans }}</label>
+                    <input class="form-control" type="text" name="comments" value="{{ image.comments }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="mediumId">{{ 'Medium'|trans }}</label>
+                    <select class="form-control" name="mediumId">
+                        <option value="">{{ 'Select a medium'|trans }}</option>
+                        {% for medium in mediums %}
+                            <option value="{{ medium.id }}"{% if image.medium.id is defined and image.medium.id == medium.id %}
+                            selected{% endif %}>{{ medium.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="photographerId">{{ 'Photographer'|trans }}</label>
+                    <select class="form-control" name="photographerId">
+                        <option value="">{{ 'Select a photographer'|trans }}</option>
+                        {% for photographer in photographers %}
+                            <option value="{{ photographer.id }}"{% if image.photographer.id is defined and
+                            image.photographer.id == photographer.id %} selected{% endif %}>{{ photographer.firstName }}
+                                {{ photographer.lastName }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="location">{{ 'Location'|trans }}</label>
+                    <input class="form-control" type="text" name="location">
+                </div>
+
+                <div class="form-group">
+                    <label for="conservation">{{ 'Conservation'|trans }}</label>
+                    <input class="form-control" type="text" name="conservation">
+                </div>
+
+                <button type="submit" class="btn btn-primary">{{ 'Save'|trans }}</button>
+                <button type="reset" class="btn btn-danger">{{ 'Cancel'|trans }}</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

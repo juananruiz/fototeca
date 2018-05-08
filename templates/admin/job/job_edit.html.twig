@@ -1,0 +1,23 @@
+{% extends "admin/layout_admin.html.twig" %}
+{% set title = 'Edit Job'|trans %}
+{% set active = 'jobs' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-6">
+            <h2>{{ title }}</h2>
+
+            <form action="{{ path('job_save') }}" method="post">
+                <input class="hidden" name="id" value="{{ job.id }}">
+
+                <div class="form-group">
+                    <label for="name">{{ 'Name'|trans }}</label>
+                    <input class="form-control" type="text" name="name" value="{{ job.name }}">
+                </div>
+
+                <button type="submit" class="btn btn-primary">{{ 'Save'|trans }}</button>
+                <button type="reset" class="btn btn-danger">{{ 'Cancel'|trans }}</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

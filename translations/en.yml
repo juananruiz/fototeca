@@ -1,0 +1,102 @@
+# locales/en.yml
+
+# ACTION
+
+Add: Add
+Cancel: Cancel
+Delete: Delete
+Edit: Edit
+New: New
+New Image: New Image
+Next: Next
+Previous: Previous
+Return to list: Return to list
+Save: Save
+Search: Search
+Send Message: Send Message
+Toggle navigation: Toggle navigation
+Upload image: Upload image
+
+# FIELDS NAMES
+
+Itemo: Objeto
+Image: Image
+Birth Date: Birth Date
+Birth Locality: Birth Locality
+Birth Province: Birth Province
+Birth Country: Birth Country
+Created at: Created at
+Death Date: Death Date
+Email: Email
+Email Address: Email Address
+End Date: End Date
+First Name: First Name
+ID: ID
+Last Name: Last Name
+Name: Name
+Start Date: Start Date
+
+
+# TITLES & MENUS
+
+Administration: Administration
+Item Edit: Item Edit
+Item's List: Item's List
+Image Edit: Image Data Edit
+Image List: Image List
+Collections: Collections
+Configuration: Configuration
+Contact Data: Contact Data
+Contents: Contents
+Home: Home
+Job: Job
+Job Edit: Job Edit
+Jobs List: Jobs List
+Login: Login
+Logout: Logout
+My profile: My profile
+New Item: New Item
+New Image: New Image
+New Job: New Job
+New Person: New Person
+Others: Others
+People: People
+People List: People List
+Person: Person
+Person Data Sheet: Person Data Sheet
+Person Edit: Person Edit
+Personal Data: Personal Data
+Photo Edit: Photo Edit
+Photographer: Photographer
+Photographers: Photographers
+People List: People List
+Select item: Select item
+Series: Series
+We would love to hear from you: We would love to hear from you
+
+
+# MESSAGES
+
+Item has been created.: Item has been created.
+Item has been updated.: Item has been updated.
+Image has been created.: Image has been created.
+Image has been updated.: Image has been updated.
+danger: ERROR!
+Job has been created.: Job has been created.
+Job has been updated.: Job has been updated.
+No items associated. : No items associated.
+No items yet. : No items yet.
+No jobs defined yet. : No jobs defined yet.
+No people defined yet.: No people defined yet.
+Please enter a message: Please enter a message
+Please enter your email address: Please enter your email address
+Please enter your name: Please enter your name
+Select a job: Select a job
+success: SUCCESS!
+There is no record for this ID: There is no record for this ID
+Undefined: Undefined
+warning: WARNING!
+
+# VALIDATION
+
+name This value should not be blank. : Name should not be blank.

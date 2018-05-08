@@ -1,0 +1,20 @@
+{% extends 'views/admin/layout_admin.html.twig' %}
+{% block content %}
+    <div class="container error-404">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1>404</h1>
+                <h3>Ups! No encontramos la página que has solicitado</h3>
+                <p class="lead">Intenta hacer una búsqueda para encontrar lo que necesitas.</p>
+                <form role="form" class="subscribe-form">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="ej. pintura">
+                        <span class="input-group-btn">
+                                        <button class="btn  btn-theme-bg btn-lg" type="submit">Buscar</button>
+                                    </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

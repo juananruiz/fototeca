@@ -1,0 +1,23 @@
+{% extends "admin/layout_dashboard.html.twig" %}
+{% set title = 'Editar Medio' %}
+{% set active = 'mediums' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-6">
+            <h2>{{ title }}</h2>
+
+            <form action="{{ path('admin_medium_save') }}" method="post">
+                <input type="hidden" name="id" value="{{ medium.id }}">
+
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input class="form-control" type="text" name="name" value="{{ medium.name }}">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Grabar</button>
+                <button type="reset" class="btn btn-danger">Cancelar</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

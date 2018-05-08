@@ -1,0 +1,35 @@
+{% extends "admin/layout_admin.html.twig" %}
+{% set active = 'jobs' %}
+{% set title = 'Jobs List'|trans %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-6">
+            <h2>
+                {{ title }}
+                <a class="btn btn-primary pull-right" role="button" href="{{ path('job_add') }}"><i
+                            class="fa fa-plus-circle"></i> {{ 'New Job'|trans }}</a>
+            </h2>
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>{{ 'Name'|trans }}</th>
+                </tr>
+                </thead>
+                {% for job in jobs %}
+                    <tr>
+                        <td><a href="{{ path('job_edit', {'id': job.id}) }}">{{ job.name }}</a></td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="2">{{ 'No jobs defined yet'|trans }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+            {% include "pagination.html.twig" %}
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Universidad de Sevilla">
+    <link rel="icon" href="https://getbootstrap.com/favicon.ico">
+    <title>{{ title }} - Fototeca Universidad de Sevilla</title>
+    {% block css %}
+        <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/assets/css/dashboard.css" rel="stylesheet">
+    {% endblock %}
+</head>
+
+<body>
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="{{ path('home') }}">Fototeca</a>
+    <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <a class="nav-link" href="#">Salir</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ path('admin_home') }}">
+                            <span data-feather="home"></span>
+                            Inicio <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('admin_home') }}">
+                            <span data-feather="box"></span>
+                            Items
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('admin_home') }}">
+                            <span data-feather="feather"></span>
+                            Autores
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('admin_serie_list') }}">
+                            <span data-feather="book"></span>
+                            Series
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('admin_medium_list') }}">
+                            <span data-feather="box"></span>
+                            Medios
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('admin_home') }}">
+                            <span data-feather="users"></span>
+                            Usuarios
+                        </a>
+                    </li>
+                </ul>
+
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span>Atajos</span>
+                </h6>
+                <ul class="nav flex-column mb-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('admin_home') }}">
+                            <span data-feather="plus-circle"></span>
+                            Nuevo item
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('admin_home') }}">
+                            <span data-feather="plus-circle"></span>
+                            Nuevo autor
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('admin_home') }}">
+                            <span data-feather="plus-circle"></span>
+                            Nueva serie
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('admin_medium_add') }}">
+                            <span data-feather="plus-circle"></span>
+                            Nuevo medio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('admin_home') }}">
+                            <span data-feather="plus-circle"></span>
+                            Nuevo usuario
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            {% block content %}
+            {% endblock %}
+        </main>
+    </div>
+</div>
+
+{% block js %}
+    <script src="/assets/js/jquery-3.2.1.slim.min.js"></script>
+    <script src="/assets/js/popper.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script>
+        feather.replace();
+    </script>
+{% endblock %}
+
+</body>
+</html>

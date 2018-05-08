@@ -1,0 +1,51 @@
+{% extends "admin/layout_admin.html.twig" %}
+{% set active = 'item' %}
+{% set title = 'New Item'|trans %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel">
+                <header class="panel-heading">
+                    <h2>{{ title }}</h2>
+                </header>
+                <div class="panel-body">
+                    <form action="{{ path('item_save') }}" method="post">
+                        <div class="form-group">
+                            <label for="name">{{ 'Name'|trans }}</label>
+                            <input type="text" class="form-control" name="name"
+                                   value="{% if name is defined %}{{ name }}{% endif %}">
+                        </div>
+                        <div class="form-group">
+                            <label for="comments">{{ 'Comments'|trans }}</label>
+                            <input type="text" class="form-control" name="comments"
+                                   value="{% if comments is defined %}{{ comments }}{% endif %}">
+                        </div>
+                        <div class="form-group">
+                            <label for="locality">{{ 'Locality'|trans }}</label>
+                            <input type="text" class="form-control" name="locality"
+                                   value="{% if locality is defined %}{{ locality }}{% endif %}">
+                        </div>
+                        <div class="form-group">
+                            <label for="province">{{ 'Province'|trans }}</label>
+                            <input type="text" class="form-control" name="condition"
+                                   value="{% if province is defined %}{{ province }}{% endif %}">
+                        </div>
+                        <div class="form-group">
+                            <label for="countryId">{{ 'Country'|trans }}</label>
+                            <select class="form-control" name="countryId">
+                                <option value="">{{ 'Select a country'|trans }}</option>
+                                {% for country in countries %}
+                                    <option value="{{ country.id }}"{% if item.country.id is defined and
+                                    item.country.id == country.id %} selected{% endif %}>{{ country.nameEs }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">{{ 'Save'|trans }}</button>
+                        <button type="reset" class="btn btn-danger">{{ 'Cancel'|trans }}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
