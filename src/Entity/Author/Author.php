@@ -49,7 +49,7 @@ class Author
      * @var string
      * @ORM\Column(type="text", nullable=TRUE)
      */
-    private $comments;
+    private $comment;
 
     /**
      * @ORM\ManyToOne(targetEntity="Job")
@@ -158,17 +158,17 @@ class Author
     /**
      * @return string
      */
-    public function getComments()
+    public function getComment()
     {
-        return $this->comments;
+        return $this->comment;
     }
 
     /**
-     * @param string $comments
+     * @param string $comment
      */
-    public function setComments($comments)
+    public function setComment($comment)
     {
-        $this->comments = $comments;
+        $this->comment = $comment;
     }
 
     /**

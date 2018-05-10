@@ -1,4 +1,4 @@
-{% extends "layout_admin.html.twig" %}
+{% extends "admin/layout_dashboard.html.twig" %}
 {% set title = 'New Author'|trans %}
 {% set active = 'authors' %}
 
@@ -7,7 +7,7 @@
         <div class="col-lg-6">
             <h2>{{ title }}</h2>
 
-            <form action="{{ path('author_save') }}" method="post">
+            <form action="{{ path('admin_author_save') }}" method="post">
 
                 <div class="form-group">
                     <label for="firstName">{{ 'First Name'|trans }}</label>
@@ -23,7 +23,7 @@
                         <option value="">{{ 'Select a country'|trans }}</option>
                         {% for country in countries %}
                             <option value="{{ country.id }}"{% if author.country.id is defined and
-                            author.country.id == country.id %} selected{% endif %}>{{ country.name }}</option>
+                            author.country.id == country.id %} selected{% endif %}>{{ country.nameEs }}</option>
                         {% endfor %}
                     </select>
                 </div>

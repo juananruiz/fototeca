@@ -16,46 +16,54 @@
 
 {% block content %}
     <div class="row">
-        <div class="col-md-12">
-            <div class="panel">
-                <header class="panel-heading">
-                    <h2>{{ title }}
-                        <a class="btn btn-primary pull-right" role="button" href="{{ path('admin_serie_add') }}"><i
-                                    class="fa fa-plus-circle"></i> {{ 'New Serie'|trans }}</a>
-                    </h2>
-                </header>
-                <div class="panel-body">
-                    <table id="datatable" class="table table-striped dt-responsive nowrap">
-                        <thead>
-                        <tr>
-                            <th></th>
-                            <th>{{ 'Name'|trans }}</th>
-                            <th>{{ 'Description'|trans }}</th>
-                            <th>{{ 'isJewel'|trans }}</th>
-                            <th></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {% for serie in series %}
-                            <tr>
-                                <td><a href="{{ path('admin_serie_edit', {'id': serie.id}) }}"
-                                       title="{{ 'Edit Serie'|trans }}"><i class="fa fa-pencil"></i></a></td>
-                                <td>{{ serie.name }}</td>
-                                <td>{{ serie.description }}</td>
-                                <td>{{ serie.isJewel }}</td>
-                                <td><a href="{{ path('admin_serie_delete', {'id':serie.id}) }}"
-                                       title="{{ 'Delete Serie'|trans }}"><i class="fa fa-trash"></i></a>
-                                </td>
-                            </tr>
-                        {% else %}
-                            <tr>
-                                <td colspan="5">{{ 'No series yet.'|trans }}</td>
-                            </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
+        <div class="col">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                <h3>{{ title }}</h3>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-group mr-2">
+                        <button class="btn btn-sm btn-outline-secondary"><a href="{{ path('admin_serie_add') }}"><span
+                                        data-feather="plus-circle"></span> {{ 'Add Serie'|trans }}</a></button>
+                        <button class="btn btn-sm btn-outline-secondary">Export</button>
+                    </div>
+                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                        <span data-feather="calendar"></span>
+                        This week
+                    </button>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 table-responsive">
+            <table id="datatable" class="table table-striped table-sm">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>{{ 'Name'|trans }}</th>
+                    <th>{{ 'Description'|trans }}</th>
+                    <th>{{ 'isJewel'|trans }}</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for serie in series %}
+                    <tr>
+                        <td><a class="badge badge-primary" href="{{ path('admin_serie_edit', {'id': serie.id}) }}"
+                               title="{{ 'Edit Serie'|trans }}">{{ serie.id }}</a></td>
+                        <td>{{ serie.name }}</td>
+                        <td>{{ serie.description }}</td>
+                        <td>{{ serie.isJewel }}</td>
+                        <td><a href="{{ path('admin_serie_delete', {'id':serie.id}) }}"
+                               title="{{ 'Delete Serie'|trans }}"><span data-feather="trash"></span></a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="5">{{ 'No series yet.'|trans }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
 {% endblock %}
