@@ -56,8 +56,8 @@ class AuthorController extends Controller
     {
         $firstName = $request->get('first_name');
         $lastName = $request->get('last_name');
-        $birthDate = $request->get('birth_date');
-        $deathDate = $request->get('death_date');
+        $birthDate = new \DateTime($request->get('birth_date'));
+        $deathDate = new \DateTime($request->get('death_date'));
         $comment = $request->get('comment');
         $countryId = $request->get('country_id');
         $jobId = $request->get('job_id');
@@ -67,9 +67,10 @@ class AuthorController extends Controller
             $author = $this->repository->find($id);
         } else {
             $author = new Author();
+            $author->setCreatedAt(new \DateTime());
         }
         $author->setFirstName($firstName);
-        $author->setFirstName($lastName);
+        $author->setLastName($lastName);
         $author->setBirthDate($birthDate);
         $author->setDeathDate($deathDate);
         $author->setComment($comment);
@@ -100,12 +101,21 @@ class AuthorController extends Controller
     /**
      * @Route("/admin/autor/editar/{id}", requirements={"id": "\d+"}, name="admin_author_edit")
      * @param $id Author id
+     * @param CountryRepository $countryRepository
+     * @param JobRepository $jobRepository
      * @return Response
      */
-    public function edit($id)
+    public function edit($id,CountryRepository $countryRepository, JobRepository $jobRepository)
     {
         $author = $this->repository->find($id);
-        return $this->render('admin/author/author_edit.html.twig', array("author" => $author));
+        $countries = $countryRepository->findAll();
+        $jobs = $jobRepository->findAll();
+
+        return $this->render('admin/author/author_edit.html.twig', array(
+            "author" => $author,
+            "countries" => $countries,
+            "jobs" => $jobs
+        ));
     }
 
     /**

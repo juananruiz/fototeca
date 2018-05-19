@@ -1,4 +1,4 @@
-{% extends "layout_admin.html.twig" %}
+{% extends "admin/layout_dashboard.html.twig" %}
 {% set title = 'Edit Author'|trans %}
 {% set active = 'authors' %}
 
@@ -7,30 +7,30 @@
         <div class="col-lg-6">
             <h2>{{ title }}</h2>
 
-            <form action="{{ path('author_save') }}" method="post">
+            <form action="{{ path('admin_author_save') }}" method="post">
                 <input class="hidden" name="id" value="{{ author.id }}">
 
                 <div class="form-group">
-                    <label for="firstName">{{ 'First Name'|trans }}</label>
-                    <input class="form-control" type="text" name="firstName" value="{{ author.firstName }}">
+                    <label for="first_name">{{ 'First Name'|trans }}</label>
+                    <input class="form-control" type="text" name="first_name" value="{{ author.firstName }}">
                 </div>
                 <div class="form-group">
-                    <label for="lastName">{{ 'Last Name'|trans }}</label>
-                    <input class="form-control" type="text" name="lastName" value="{{ author.lastName }}">
+                    <label for="last_name">{{ 'Last Name'|trans }}</label>
+                    <input class="form-control" type="text" name="last_name" value="{{ author.lastName }}">
                 </div>
                 <div class="form-group">
-                    <label for="countryId">{{ 'Country'|trans }}</label>
-                    <select class="form-control" name="countryId">
+                    <label for="country_id">{{ 'Country'|trans }}</label>
+                    <select class="form-control" name="country_id">
                         <option value="">{{ 'Select a country'|trans }}</option>
                         {% for country in countries %}
                             <option value="{{ country.id }}"{% if author.country.id is defined and
-                            author.country.id == country.id %} selected{% endif %}>{{ country.name }}</option>
+                            author.country.id == country.id %} selected{% endif %}>{{ country.nameEs }}</option>
                         {% endfor %}
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="jobId">{{ 'Job'|trans }}</label>
-                    <select class="form-control" name="jobId">
+                    <label for="job_id">{{ 'Job'|trans }}</label>
+                    <select class="form-control" name="job_id">
                         <option value="">{{ 'Select a job'|trans }}</option>
                         {% for job in jobs %}
                             <option value="{{ job.id }}"{% if author.job.id is defined and
@@ -39,26 +39,26 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="birthDate">{{ 'Birth Date'|trans }}</label>
-                    <input class="form-control" type="text" name="birthDate"
+                    <label for="birth_date">{{ 'Birth Date'|trans }}</label>
+                    <input class="form-control" type="text" name="birth_date"
                            value="{{ author.birthDate|date('d/m/Y') }}">
                 </div>
                 <div class="form-group has-feedback">
-                    <label for="deathDate">{{ 'Death Date'|trans }}</label>
+                    <label for="death_date">{{ 'Death Date'|trans }}</label>
 
                     <div class="input-group date" data-provide="datepicker" data-date-language="es"
                          data-date-autoclose="true">
                         <div class="input-group-addon"><i class="fa fa-calendar fa-fw"></i></div>
                         <input type='text' value="{{ author.deathDate|date('d/m/Y') }}" class="form-control"
-                               name='deathDate' id='deathDate' data-validar_fecha="validar_fecha" required/>
+                               name='death_date' id='deathDate' data-validar_fecha="validar_fecha" required/>
                     </div>
                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 
                     <div class="help-block with-errors"></div>
                 </div>
                 <div class="form-group">
-                    <label for="comments">{{ 'Comments'|trans }}</label>
-                    <textarea class="form-control" name="comments">{{ author.comments }}</textarea>
+                    <label for="comment">{{ 'Comment'|trans }}</label>
+                    <textarea class="form-control" name="comment">{{ author.comment }}</textarea>
                 </div>
 
                 <button type="submit" class="btn btn-primary">{{ 'Save'|trans }}</button>

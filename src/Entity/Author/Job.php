@@ -27,15 +27,6 @@ class Job
      */
     private $name;
 
-    /**
-     * The class constructor receives the data to fill its properties
-     *
-     * @param $data
-     */
-    function __construct($data)
-    {
-        $this->name = $data['name'];
-    }
 
     /**
      * @param ClassMetadata $metadata

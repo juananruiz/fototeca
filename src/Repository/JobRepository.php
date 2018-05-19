@@ -18,4 +18,27 @@ class JobRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Job::class);
     }
+
+    /**
+     * @param Job $job
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function save(Job $job)
+    {
+        $this->getEntityManager()->persist($job);
+        $this->getEntityManager()->flush();
+    }
+
+    /**
+     * @param Job $job
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function delete(Job $job)
+    {
+        $this->getEntityManager()->remove($job);
+        $this->getEntityManager()->flush();
+    }
+    
 }

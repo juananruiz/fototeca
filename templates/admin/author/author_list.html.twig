@@ -22,14 +22,14 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6 table-responsive">
+        <div class="col-md-10 table-responsive">
             <table class="table table-striped table-sm">
                 <thead>
                 <tr>
                     <th>{{ "ID"|trans }}</th>
-                    <th>{{ "firstName"|trans }}</th>
-                    <th>{{ "lastName"|trans }}</th>
+                    <th>{{ "Name"|trans }}</th>
                     <th>{{ "Job"|trans }}</th>
+                    <th>{{ "Items"|trans }}</th>
                     <th>&nbsp;</th>
                 </tr>
                 </thead>
@@ -37,7 +37,7 @@
                     <tr>
                         <td><a class="badge badge-primary" href="{{ path('admin_author_edit', {'id': author.id}) }}" >{{ author.id }}</a></td>
                         <td><a href="{{ path('admin_author_edit', {'id': author.id}) }}">{{ author.firstName }} {{ author.lastName }}</a></td>
-                        <td>{{ author.job.name }}</td>
+                        <td>{% if author.job %}{{ author.job.name }}{% endif %}</td>
                         <td>10</td>
                         <td><a class="text-danger" href="{{ path('admin_author_delete', {'id': author.id}) }}"><span
                                         data-feather="trash"></span></a></td>

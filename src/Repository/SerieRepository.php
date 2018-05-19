@@ -24,8 +24,7 @@ class SerieRepository extends ServiceEntityRepository
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
-    public
-    function save(Serie $serie)
+    public function save(Serie $serie)
     {
         $this->getEntityManager()->persist($serie);
         $this->getEntityManager()->flush();
@@ -36,8 +35,7 @@ class SerieRepository extends ServiceEntityRepository
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
-    public
-    function delete(Serie $serie)
+    public function delete(Serie $serie)
     {
         $this->getEntityManager()->remove($serie);
         $this->getEntityManager()->flush();

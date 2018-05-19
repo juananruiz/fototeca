@@ -1,4 +1,4 @@
-{% extends "admin/layout_admin.html.twig" %}
+{% extends "admin/layout_dashboard.html.twig" %}
 {% set title = 'New Job'|trans %}
 {% set active = 'jobs' %}
 
@@ -7,7 +7,7 @@
         <div class="col-lg-6">
             <h2>{{ title }}</h2>
 
-            <form action="{{ path('job_save') }}" method="post">
+            <form action="{{ path('admin_job_save') }}" method="post">
                 <div class="form-group">
                     <label for="name">{{ 'Name'|trans }}</label>
                     <input class="form-control" type="text" name="name">

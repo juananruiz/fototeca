@@ -1,25 +1,39 @@
-{% extends "admin/layout_admin.html.twig" %}
+{% extends "admin/layout_dashboard.html.twig" %}
 {% set active = 'jobs' %}
 {% set title = 'Jobs List'|trans %}
 
 {% block content %}
     <div class="row">
-        <div class="col-lg-6">
-            <h2>
-                {{ title }}
-                <a class="btn btn-primary pull-right" role="button" href="{{ path('job_add') }}"><i
-                            class="fa fa-plus-circle"></i> {{ 'New Job'|trans }}</a>
-            </h2>
-
+        <div class="col">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                <h3>{{ title }}</h3>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-group mr-2">
+                        <button class="btn btn-sm btn-outline-secondary"><a href="{{ path('admin_job_add') }}"><span
+                                        data-feather="plus-circle"></span> {{ "Add Job"|trans }}</a></button>
+                        <button class="btn btn-sm btn-outline-secondary">Export</button>
+                    </div>
+                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                        <span data-feather="calendar"></span>
+                        This week
+                    </button>
+                </div>
+            </div>
+        </div>
+        </div>
+    <div class="row">
+        <div class="col-md-6 table-responsive">
             <table class="table table-striped">
                 <thead>
                 <tr>
+                    <th>{{ "ID"|trans }}</th>
                     <th>{{ 'Name'|trans }}</th>
                 </tr>
                 </thead>
                 {% for job in jobs %}
                     <tr>
-                        <td><a href="{{ path('job_edit', {'id': job.id}) }}">{{ job.name }}</a></td>
+                        <td><a class="badge badge-primary" href="{{ path('admin_job_edit', {'id': job.id}) }}" >{{ job.id }}</a></td>
+                        <td><a href="{{ path('admin_job_edit', {'id': job.id}) }}">{{ job.name }}</a></td>
                     </tr>
                 {% else %}
                     <tr>
@@ -28,7 +42,7 @@
                 {% endfor %}
             </table>
 
-            {% include "pagination.html.twig" %}
+            {#{% include "pagination.html.twig" %}#}
         </div>
     </div>
 
