@@ -26,6 +26,7 @@ class AdminHomeController extends Controller
 
     /**
      * @Route("/admin", name="admin_home")
+     * @Route("/admin/", name="admin_home")
      * @return Response
      */
     public function home()
@@ -35,7 +36,7 @@ class AdminHomeController extends Controller
 
         $pictures = $this->repository->findBy($criteria, $orderBy);
 
-        return $this->render('index.html.twig', array(
+        return $this->render('admin/index.html.twig', array(
             "pictures" => $pictures
         ));
     }
