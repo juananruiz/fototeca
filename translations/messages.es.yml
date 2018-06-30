@@ -1,3 +1,4 @@
+About: Acerca de
 Add: Añadir
 Add Author: Añadir Autor
 Add Collection: Añadir Colección
@@ -16,6 +17,7 @@ Collections: Colecciones
 Comments: Comentarios
 Configuration: Configuración
 Conservation: Estado de conservación
+Contact: Contactar
 Contact Data: Datos de Contacto
 Contents: Contenidos
 Country: País
@@ -30,6 +32,7 @@ Delete Item: Borrar Objeto
 Delete Job: Borrar Profesión
 Delete Serie: Borrar Serie
 Description: Descripción
+Documentation: Documentación
 Edit Author: Editar Autor
 Edit Collection: Editar Colección
 Edit: Editar
@@ -42,21 +45,23 @@ Email: Correo
 End Date: Fecha Baja
 Fax: Fax
 First Name: Nombre
+Fototeca Universidad de Sevilla: Fototeca Universidad de Sevilla
 Get in touch!: Mantente en contacto!
 Home: Inicio
 ID: ID
+Image: Imagen
 Image data has been updated: Se han actualizado los datos de la imagen
 Image Edit: Editar Imagen
 Image file has been update: Se ha actualizado el fichero de la imagen
 Image has been created: Se ha creado la imagen
-Image: Imagen
 Image List: Lista de Imágenes
 Images: Imágenes
 Is Jewel: Es Joya
+Item: Objeto
 Item Edit: Editar Objeto
 Item has been created: Se ha creado el objeto.
 Item has been updated: Se ha actualizado el objeto
-Item: Objeto
+Item's List: Lista de Objetos
 Items List: Lista de Objetos
 Items: Objetos
 Jewel: Joya
@@ -86,15 +91,16 @@ New Item: Nuevo Objeto
 New Job: Nueva Profesión
 New Medium: Nuevo Soporte
 New: Nuevo
+News: Novedades
 New Person: Nueva Persona
 New Serie: Nueva Serie
 Next: Siguiente
 No items associated: No hay objetos asociados
 No items yet: Todavía no hay objetos
-No jobs defined yet: Todavía no hay profesiones
+No jobs yet: Todavía no hay profesiones
 No: No
-No people defined yet: Todavía no hay personas
-No series defined yet: Todavía no hay series
+No people yet: Todavía no hay personas
+No series yet: Todavía no hay series
 Others: Otros
 People List: Lista de personas
 People: Personas
@@ -114,6 +120,7 @@ Province: Provincia
 Return to list: Volver al listado
 Save: Grabar
 Search: Buscar
+Select a country: Seleccione un país
 Select a job: Seleccione una profesión
 Select item: Seleccionar objeto
 Send Message: Enviar mensaje
@@ -123,7 +130,7 @@ Series: Series
 Start Date: Fecha Alta
 success: CORRECTO
 There is no record for this ID: No hay registro para esta ID
-Toggle navigation: Conmutar navegación
+Toggle navigation: Mostrar/ocultar menú
 Undefined: Indefinido
 Unknown author: Autor desconocido
 Upload image: Subir imagen

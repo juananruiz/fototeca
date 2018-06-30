@@ -77,12 +77,7 @@ class Item
     private $series;
 
 
-    /**
-     * @param ArrayCollection $images
-     * @param ArrayCollection $authors
-     * @param ArrayCollection $series
-     */
-    public function __construct(ArrayCollection $images, ArrayCollection $authors, ArrayCollection $series)
+    public function __construct()
     {
         $this->images = new ArrayCollection();
         $this->authors = new ArrayCollection();

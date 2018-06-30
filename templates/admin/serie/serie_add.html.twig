@@ -1,6 +1,6 @@
 {% extends "admin/layout_dashboard.html.twig" %}
-{% set title = 'New Serie'|trans %}
 {% set active = 'series' %}
+{% set title = 'New Serie'|trans %}
 
 {% block content %}
     <div class="row">
@@ -10,7 +10,6 @@
                     <h2>{{ title }}</h2>
                 </header>
                 <div class="panel-body">
-
                     <form action="{{ path('admin_serie_save') }}" method="post">
                         <div class="form-group">
                             <label for="name">{{ 'Name'|trans }}</label>

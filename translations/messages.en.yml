@@ -1,3 +1,4 @@
+About: About
 Add: Add
 Administration: Administration
 Authors List: Authors List
@@ -8,60 +9,66 @@ Birth Province: Birth Province
 Cancel: Cancel
 Collections: Collections
 Configuration: Configuration
+Contact: Contact
 Contact Data: Contact Data
 Contents: Contents
 Created at: Created at
 danger: ERROR!
 Death Date: Death Date
 Delete: Delete
+Documentation: Documentation
 Edit: Edit
 Email Address: Email Address
 Email: Email
 End Date: End Date
 First Name: First Name
+Fototeca Universidad de Sevilla: Fototeca Universidad de Sevilla
 Home: Home
 ID: ID
-Image Edit: Image Data Edit
-Image has been created.: Image has been created.
-Image has been updated.: Image has been updated.
 Image: Image
+Image Edit: Image Data Edit
+Image has been created: Image has been created.
+Image has been updated: Image has been updated.
 Image List: Image List
 Is Jewel: Is Jewel
+Item: Item
 Item Edit: Item Edit
-Item has been created.: Item has been created.
-Item has been updated.: Item has been updated.
-Item: Objeto
+Item has been created: Item has been created.
+Item has been updated: Item has been updated.
 Item's List: Item's List
+Items List: Item List
 Jewel: Jewel
-Job Edit: Job Edit
-Job has been created.: Job has been created.
-Job has been updated.: Job has been updated.
 Job: Job
+Job Edit: Job Edit
+Job has been created: Job has been created.
+Job has been updated: Job has been updated.
 Jobs List: Jobs List
 Last Name: Last Name
 Login: Login
 Logout: Logout
 My profile: My profile
 Name: Name
-name This value should not be blank. : Name should not be blank.
+name This value should not be blank: Name should not be blank.
+New: New
 New Image: New Image
 New Item: New Item
 New Job: New Job
-New: New
 New Person: New Person
+News: News
 Next: Next
-No items associated. : No items associated.
-No items yet. : No items yet.
-No jobs defined yet. : No jobs defined yet.
 No: No
-No people defined yet.: No people defined yet.
+No items associated: No items associated.
+No items yet: No items yet.
+No jobs yet: No jobs yet.
+No people yet: No people yet.
+No series yet: No series yet.
 Others: Others
 People List: People List
 People: People
-Personal Data: Personal Data
+Person: Person
 Person Data Sheet: Person Data Sheet
 Person Edit: Person Edit
-Person: Person
+Personal Data: Personal Data
 Photo Edit: Photo Edit
 Photographer: Photographer
 Photographers: Photographers
@@ -72,6 +79,7 @@ Previous: Previous
 Return to list: Return to list
 Save: Save
 Search: Search
+Select a country: Select a country
 Select a job: Select a job
 Select item: Select item
 Send Message: Send Message
