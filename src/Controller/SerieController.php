@@ -4,13 +4,13 @@ namespace App\Controller;
 
 use App\Entity\Item\Serie;
 use App\Repository\SerieRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 
-class SerieController extends Controller
+class SerieController extends AbstractController
 {
     /**
      * @var SerieRepository

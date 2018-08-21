@@ -6,13 +6,13 @@ use App\Entity\Author\Author;
 use App\Repository\AuthorRepository;
 use App\Repository\CountryRepository;
 use App\Repository\JobRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 
-class AuthorController extends Controller
+class AuthorController extends AbstractController
 {
     /**
      * @var AuthorRepository

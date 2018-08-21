@@ -3,13 +3,12 @@
 namespace App\Controller;
 
 use App\Repository\MediumRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 
-class AdminHomeController extends Controller
+class AdminHomeController extends AbstractController
 {
     /**
      * @var MediumRepository

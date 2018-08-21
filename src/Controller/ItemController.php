@@ -5,13 +5,13 @@ namespace App\Controller;
 use App\Entity\Item\Item;
 use App\Repository\CountryRepository;
 use App\Repository\ItemRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 
-class ItemController extends Controller
+class ItemController extends AbstractController
 {
     /**
      * @var ItemRepository
@@ -45,14 +45,16 @@ class ItemController extends Controller
     /**
      * @Route("/admin/item/grabar", name="admin_item_save")
      * @param Request $request
+     * @param CountryRepository $countryRepository
      * @return Response
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
-    public function save(Request $request)
+    public function save(Request $request, CountryRepository $countryRepository)
     {
         $name = $request->get('name');
         $comments = $request->get('comments');
+        $countryId = $request->get('country_id');
         $locality = $request->get('locality');
         $province = $request->get('province');
         // Editing or adding
@@ -64,6 +66,7 @@ class ItemController extends Controller
         }
         $item->setName($name);
         $item->setComments($comments);
+        $item->setCountry($countryRepository->find($countryId));
         $item->setLocality($locality);
         $item->setProvince($province);
         $this->repository->save($item);

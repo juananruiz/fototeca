@@ -4,13 +4,13 @@ namespace App\Controller;
 
 use App\Entity\Image\Medium;
 use App\Repository\MediumRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 
-class MediumController extends Controller
+class MediumController extends AbstractController
 {
     /**
      * @var MediumRepository

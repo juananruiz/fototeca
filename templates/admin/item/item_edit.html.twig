@@ -31,8 +31,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="countryId">{{ 'Country'|trans }}</label>
-                    <select class="form-control" name="countryId">
+                    <label for="country_id">{{ 'Country'|trans }}</label>
+                    <select class="form-control" name="country_id">
                         <option value="">{{ 'Select a country'|trans }}</option>
                         {% for country in countries %}
                             <option value="{{ country.id }}"{% if item.country.id is defined and

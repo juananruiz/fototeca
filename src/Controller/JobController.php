@@ -4,13 +4,13 @@ namespace App\Controller;
 
 use App\Entity\Author\Job;
 use App\Repository\JobRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 
-class JobController extends Controller
+class JobController extends AbstractController
 {
     /**
      * @var JobRepository
@@ -45,6 +45,8 @@ class JobController extends Controller
      * @Route("/admin/oficio/grabar", name="admin_job_save")
      * @param Request $request
      * @return Response
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function save(Request $request)
     {
@@ -84,6 +86,8 @@ class JobController extends Controller
     /**
      * @Route("/admin/oficio/borrar/{id}", requirements={"id": "\d+"}, name="admin_job_delete")
      * @param Request $request
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
      * @return Response
      */
     public function delete(Request $request)
