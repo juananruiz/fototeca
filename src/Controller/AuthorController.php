@@ -33,10 +33,7 @@ class AuthorController extends Controller
      */
     public function list()
     {
-        $criteria = array();
-        $orderBy = array('lastName' => 'ASC');
-
-        $authors = $this->repository->findBy($criteria, $orderBy);
+        $authors = $this->repository->findBy(array(), array('lastName' => 'ASC'));
 
         return $this->render('admin/author/author_list.html.twig', array(
             "authors" => $authors
@@ -89,8 +86,8 @@ class AuthorController extends Controller
      */
     public function add(CountryRepository $countryRepository, JobRepository $jobRepository)
     {
-        $countries = $countryRepository->findAll();
-        $jobs = $jobRepository->findAll();
+        $countries = $countryRepository->findBy(array(), array("nameEs" => "ASC"));
+        $jobs = $jobRepository->findBy(array(), array("name" => "ASC"));
 
         return $this->render('admin/author/author_add.html.twig', array(
             "countries" => $countries,

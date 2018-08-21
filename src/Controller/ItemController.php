@@ -78,7 +78,7 @@ class ItemController extends Controller
      */
     public function add(CountryRepository $countryRepository)
     {
-        $countries = $countryRepository->findBy(array("demonymEn"=>null), array("nameEs" => "ASC"));
+        $countries = $countryRepository->findBy(array(), array("nameEs" => "ASC"));
         return $this->render('admin/item/item_add.html.twig', array(
             "countries" => $countries));
     }
@@ -91,9 +91,11 @@ class ItemController extends Controller
      */
     public function edit(CountryRepository $countryRepository, $id)
     {
-        $countries = $countryRepository->findBy(array("demonymEn"=>null), array("nameEs" => "ASC"));
+        $countries = $countryRepository->findBy(array(), array("nameEs" => "ASC"));
         $item = $this->repository->find($id);
-        return $this->render('admin/item/item_edit.html.twig', array("item" => $item, "countries" => $countries));
+        return $this->render('admin/item/item_edit.html.twig', array(
+            "item" => $item,
+            "countries" => $countries));
     }
 
     /**
