@@ -78,20 +78,22 @@ class ItemController extends Controller
      */
     public function add(CountryRepository $countryRepository)
     {
-        $countries = $countryRepository->findAll();
+        $countries = $countryRepository->findBy(array("demonymEn"=>null), array("nameEs" => "ASC"));
         return $this->render('admin/item/item_add.html.twig', array(
             "countries" => $countries));
     }
 
     /**
      * @Route("/admin/item/editar/{id}", requirements={"id": "\d+"}, name="admin_item_edit")
+     * @param CountryRepository $countryRepository
      * @param $id Item id
      * @return Response
      */
-    public function edit($id)
+    public function edit(CountryRepository $countryRepository, $id)
     {
+        $countries = $countryRepository->findBy(array("demonymEn"=>null), array("nameEs" => "ASC"));
         $item = $this->repository->find($id);
-        return $this->render('admin/item/item_edit.html.twig', array("item" => $item));
+        return $this->render('admin/item/item_edit.html.twig', array("item" => $item, "countries" => $countries));
     }
 
     /**
