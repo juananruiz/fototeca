@@ -1,18 +1,17 @@
 About: Acerca de
 Add: Añadir
-Add Author: Añadir Autor
-Add Collection: Añadir Colección
-Add Image: Añadir Imagen
-Add Item: Añadir Objeto
-Add Job: Añadir Profesión
 Address: Dirección
-Add Serie: Añadir Serie
 Administration: Administración
 Author: Autor
+Author Add: Añadir Autor
+Author Delete: Borrar Autor
+Author Edit: Editar Autor
 Authors: Autores
 Authors List: Lista de Autores
 Birth Date: Fecha de nacimiento
 Cancel: Cancelar
+Collection: Colección
+Collection Edit: Editar Colección
 Collections: Colecciones
 Comments: Comentarios
 Comment: Comentario
@@ -37,10 +36,6 @@ Documentation: Documentación
 Edit Author: Editar Autor
 Edit Collection: Editar Colección
 Edit: Editar
-Edit Image: Editar Imagen
-Edit Item: Editar Objeto
-Edit Job: Editar Profesión
-Edit Serie: Editar Serie
 Email Address: Correo electrónico
 Email: Correo
 End Date: Fecha Baja
@@ -48,6 +43,7 @@ Fax: Fax
 First Name: Nombre
 Fototeca Universidad de Sevilla: Fototeca Universidad de Sevilla
 Get in touch!: Mantente en contacto!
+Gender: Sexo
 Home: Inicio
 ID: ID
 Image: Imagen
@@ -66,12 +62,14 @@ Item's List: Lista de Objetos
 Items List: Lista de Objetos
 Items: Objetos
 Jewel: Joya
+Job Add: Añadir Profesión
 Job Edit: Editar Profesión
 Job has been created: Se ha creado la profesión
 Job has been updated: Se ha actualizado la profesión
 Job: Profesión
 Jobs List: Lista de Profesiones
 Jobs: Profesiones
+Keep this untouch to hold the current one: No toques aquí para mantener la actual
 Laboratorio de Arte Universidad de Sevilla: Laboratorio de Arte Universidad de Sevilla
 Last Name: Apellidos
 Locality: Localidad
@@ -79,9 +77,12 @@ Location: Localización
 Login: Login
 Logout: Logout
 Mail: Correo
-Medium Edit: Editar Soporte
-Mediums List: Lista de Soportes
+Man: Hombre
 Medium: Soporte
+Medium Add: Añadir Medio
+Medium Edit: Editar Soporte
+Mediums: Soportes
+Mediums List: Lista de Soportes
 My profile: Mi Perfil
 Name: Nombre
 name This value should not be blank. : El nombre no debe estar vacío.
@@ -91,18 +92,23 @@ New Image: Nueva Imagen
 New Item: Nuevo Objeto
 New Job: Nueva Profesión
 New Medium: Nuevo Soporte
+New User: Nuevo Usuario
 New: Nuevo
 News: Novedades
 New Person: Nueva Persona
 New Serie: Nueva Serie
 Next: Siguiente
+No authors yet: Todavía no hay autores
+No collections yet: Todavía no hay colecciones
 No items associated: No hay objetos asociados
 No items yet: Todavía no hay objetos
 No jobs yet: Todavía no hay profesiones
-No: No
-No people yet: Todavía no hay personas
+No mediums yet: Todavía no hay medios
 No series yet: Todavía no hay series
+No users yet: Todavía no hay usuarios
+No: No
 Others: Otros
+Password: Contraseña
 People List: Lista de personas
 People: Personas
 Personal Data: Datos Personales
@@ -124,8 +130,10 @@ Search: Buscar
 Select a country: Seleccione un país
 Select a job: Seleccione una profesión
 Select item: Seleccionar objeto
+Select option: Seleccione una opción
 Send Message: Enviar mensaje
 Serie: Serie
+Serie Add: Añadir Serie
 Series List: Lista de Series
 Series: Series
 Start Date: Fecha Alta
@@ -136,8 +144,13 @@ Undefined: Indefinido
 Unknown author: Autor desconocido
 Upload image: Subir imagen
 Users: Usuarios
+Users List: Listar Usuarios
 User: Usuario
+User Add: Añadir Usuario
+User Edit: Editar Usuario
+User Delete: Eliminar Usuario
 View item page: Ver ficha del objeto
 warning: ATENCIÓN
 We would love to hear from you: Encantados de escucharte
+Woman: Mujer
 Yes: Sí

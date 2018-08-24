@@ -21,12 +21,6 @@ class User implements UserInterface, \Serializable
     private $id;
 
     /**
-     * @ORM\Column(type="datetime", nullable=TRUE)
-     * @var \DateTime
-     */
-    protected $birthDate;
-
-    /**
      * @ORM\Column(type="string")
      * @var EmailAddress
      */
@@ -68,7 +62,6 @@ class User implements UserInterface, \Serializable
      * @var \DateTime
      */
     private $startDate;
-
 
     /**
      * @return int
@@ -159,22 +152,6 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * @return \DateTime
-     */
-    public function getBirthDate()
-    {
-        return $this->birthDate;
-    }
-
-    /**
-     * @param \DateTime $birthDate
-     */
-    public function setBirthDate($birthDate)
-    {
-        $this->birthDate = $birthDate;
-    }
-
-    /**
      * @return string
      */
     public function getEmail()
@@ -190,7 +167,6 @@ class User implements UserInterface, \Serializable
         $this->email = new EmailAddress($email);
     }
 
-
     public function getRoles()
     {
         return array('ROLE_USER');
@@ -199,7 +175,6 @@ class User implements UserInterface, \Serializable
     public function eraseCredentials()
     {
     }
-
 
     /**
      * String representation of object
@@ -250,9 +225,16 @@ class User implements UserInterface, \Serializable
      */
     public function getPassword()
     {
-        // TODO: Implement getPassword() method.
+        return $this->password;
     }
 
+    /**
+     * @param string $password
+     */
+    public function setPassword(string $password): void
+    {
+        $this->password = $password;
+    }
     /**
      * Returns the salt that was originally used to encode the password.
      * This can return null if the password was not encoded using a salt.

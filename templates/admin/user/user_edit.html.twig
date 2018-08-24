@@ -1,0 +1,44 @@
+{% extends "admin/layout_dashboard.html.twig" %}
+{% set active = 'users' %}
+{% set title = 'User Edit'|trans ~ ': ' ~ user.firstName ~ ' '  ~ user.lastName %}
+{% block content %}
+    <div class="row">
+        <div class="col-lg-8">
+            <h2>{{ title }}</h2>
+            <form action="{{ path('admin_user_save') }}" method="post" style="margin-top: 20px;">
+                <input type="hidden" name="id" value="{{ user.id }}">
+                <div class="form-group">
+                    <label for="firstName">{{ 'First Name'|trans }}</label>
+                    <input type="text" class="form-control" name="firstName" value="{{ user.firstName }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName">{{ 'Last Name'|trans }}</label>
+                    <input type="text" class="form-control" name="lastName" value="{{ user.lastName }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">{{ 'Email'|trans }}</label>
+                    <input type="text" class="form-control" name="email" value="{{ user.email }}">
+                </div>
+                <div class="form-group">
+                    <label for="password">{{ 'Password'|trans }}</label>
+                    <input type="password" class="form-control" name="password"
+                           placeholder="{{ 'Keep this untouch to hold the current one'|trans }}">
+                </div>
+                <div class="form-group">
+                    <label for="gender">{{ 'Gender'|trans }}</label>
+                    <select class="form-control" name="gender">
+                        <option value="">{{ 'Select option'|trans }}</option>
+                        <option value="{{ 'Man'|trans }}"
+                                {% if user.gender == 'Man'|trans %}selected{% endif %}>{{ 'Man'|trans }}</option>
+                        <option value="{{ 'Woman'|trans }}"
+                                {% if user.gender == 'Woman'|trans %}selected{% endif %}>{{ 'Woman'|trans }}</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">{{ 'Save'|trans }}</button>
+                <button type="reset" class="btn btn-danger">{{ 'Cancel'|trans }}</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

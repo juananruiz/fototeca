@@ -1,13 +1,13 @@
-{% extends "layout_admin.html.twig" %}
-{% set active = 'people' %}
-{% set title = 'New person'|trans %}
+{% extends "admin/layout_dashboard.html.twig" %}
+{% set active = 'users' %}
+{% set title = 'New User'|trans %}
 
 {% block content %}
     <div class="row">
         <div class="col-lg-6">
             <h2>{{ title }}</h2>
 
-            <form action="{{ path('person_save') }}" method="post"  enctype='multipart/form-data'>
+            <form action="{{ path('admin_user_save') }}" method="post"  enctype='multipart/form-data'>
                 <div class="form-group">
                     <label for="firstName">{{ 'First Name'|trans }}</label>
                     <input type="text" class="form-control" name="firstName">
@@ -19,6 +19,18 @@
                 <div class="form-group">
                     <label for="email">{{ 'Email'|trans }}</label>
                     <input type="text" class="form-control" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="password">{{ 'Password'|trans }}</label>
+                    <input type="password" class="form-control" name="password">
+                </div>
+                <div class="form-group">
+                    <label for="gender">{{ 'Gender'|trans }}</label>
+                    <select class="form-control" name="gender">
+                        <option value="">{{ 'Select option'|trans }}</option>
+                        <option value="{{ 'Man'|trans  }}">{{ 'Man'|trans }}</option>
+                        <option value="{{ 'Woman'|trans }}">{{ 'Woman'|trans }}</option>
+                    </select>
                 </div>
                 <button type="submit" class="btn btn-primary">{{ 'Save'|trans }}</button>
                 <button type="reset" class="btn btn-danger">{{ 'Cancel'|trans }}</button>

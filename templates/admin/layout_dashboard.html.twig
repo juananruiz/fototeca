@@ -46,22 +46,22 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('admin_job_list') }}">
-                            <span data-feather="anchor"></span> Oficios
+                            <span data-feather="anchor"></span> {{ 'Jobs'|trans }}
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('admin_serie_list') }}">
-                            <span data-feather="book"></span> Series
+                            <span data-feather="book"></span> {{ 'Series'|trans }}
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('admin_medium_list') }}">
-                            <span data-feather="box"></span> Medios
+                            <span data-feather="box"></span> {{ 'Mediums'|trans }}
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('admin_home') }}">
-                            <span data-feather="users"></span> Usuarios
+                        <a class="nav-link" href="{{ path('admin_user_list') }}">
+                            <span data-feather="users"></span> {{ 'Users'|trans }}
                         </a>
                     </li>
                 </ul>
@@ -96,7 +96,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('admin_home') }}">
+                        <a class="nav-link" href="{{ path('admin_user_add') }}">
                             <span data-feather="plus-circle"></span> Nuevo usuario
                         </a>
                     </li>

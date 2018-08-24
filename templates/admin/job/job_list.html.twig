@@ -10,7 +10,7 @@
                 <div class="btn-toolbar mb-2 mb-md-0">
                     <div class="btn-group mr-2">
                         <button class="btn btn-sm btn-outline-secondary"><a href="{{ path('admin_job_add') }}"><span
-                                        data-feather="plus-circle"></span> {{ "Add Job"|trans }}</a></button>
+                                        data-feather="plus-circle"></span> {{ "Job Add"|trans }}</a></button>
                         <button class="btn btn-sm btn-outline-secondary">Export</button>
                     </div>
                     <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
@@ -37,7 +37,7 @@
                     </tr>
                 {% else %}
                     <tr>
-                        <td colspan="2">{{ 'No jobs defined yet'|trans }}</td>
+                        <td colspan="2">{{ 'No jobs yet'|trans }}</td>
                     </tr>
                 {% endfor %}
             </table>

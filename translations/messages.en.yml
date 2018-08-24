@@ -1,6 +1,10 @@
 About: About
 Add: Add
 Administration: Administration
+Author: Author
+Author Add: Author Add
+Author Delete: Author Delete
+Author Edit: Author Edit
 Authors List: Authors List
 Birth Country: Birth Country
 Birth Date: Birth Date
@@ -23,6 +27,7 @@ Email: Email
 End Date: End Date
 First Name: First Name
 Fototeca Universidad de Sevilla: Fototeca Universidad de Sevilla
+Gender: Gender
 Home: Home
 ID: ID
 Image: Image
@@ -39,37 +44,44 @@ Item's List: Item's List
 Items List: Item List
 Jewel: Jewel
 Job: Job
+Job Add: Job Add
 Job Edit: Job Edit
 Job has been created: Job has been created.
 Job has been updated: Job has been updated.
 Jobs List: Jobs List
+Keep this untouch to hold the current one: Keep this untouch to hold the current one
 Last Name: Last Name
 Login: Login
 Logout: Logout
+Man: Man
+Medium: Medium
+Medium Add: Medium Add
+Medium Edit: Medium Edit
+Mediums: Mediums
+Mediums List: Mediums List
 My profile: My profile
 Name: Name
 name This value should not be blank: Name should not be blank.
 New: New
+New Author: New Author
+New Collection: New Collection
 New Image: New Image
 New Item: New Item
 New Job: New Job
-New Person: New Person
+New Medium: New Medium
+New User: New User
 News: News
 Next: Next
 No: No
+No authors yet: No authors yet
+No collections yet: No collections yet
 No items associated: No items associated.
 No items yet: No items yet.
 No jobs yet: No jobs yet.
-No people yet: No people yet.
 No series yet: No series yet.
+No users yet: No users defined yet
 Others: Others
-People List: People List
-People: People
-Person: Person
-Person Data Sheet: Person Data Sheet
-Person Edit: Person Edit
-Personal Data: Personal Data
-Photo Edit: Photo Edit
+Password: Password
 Photographer: Photographer
 Photographers: Photographers
 Please enter a message: Please enter a message
@@ -82,14 +94,24 @@ Search: Search
 Select a country: Select a country
 Select a job: Select a job
 Select item: Select item
+Select option: Select option
 Send Message: Send Message
 Series: Series
+Serie Add: Serie Add
+Serie Delete: Serie Delete
 Start Date: Start Date
 success: SUCCESS!
 There is no record for this ID: There is no record for this ID
 Toggle navigation: Toggle navigation
 Undefined: Undefined
 Upload image: Upload image
+User: User
+User Add: User Add
+User Delete: User Delete
+User Edit: User Edit
+Users: Users
+Users List: Users List
 warning: WARNING!
 We would love to hear from you: We would love to hear from you
+Woman: Woman
 Yes: Yes

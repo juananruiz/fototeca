@@ -1,6 +1,6 @@
 {% extends "admin/layout_dashboard.html.twig" %}
 {% set active = 'mediums' %}
-{% set title = 'Lista de Medios' %}
+{% set title = 'Mediums List'|trans %}
 
 {% block content %}
     <div class="row">
@@ -10,7 +10,7 @@
                 <div class="btn-toolbar mb-2 mb-md-0">
                     <div class="btn-group mr-2">
                         <button class="btn btn-sm btn-outline-secondary"><a href="{{ path('admin_medium_add') }}"><span
-                                        data-feather="plus-circle"></span> Crear medio</a></button>
+                                        data-feather="plus-circle"></span> {{ 'Medium Add'|trans }}</a></button>
                         <button class="btn btn-sm btn-outline-secondary">Export</button>
                     </div>
                     <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
@@ -27,8 +27,8 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Items</th>
+                    <th>{{ 'Name'|trans }}</th>
+                    <th>{{ 'Items'|trans }}</th>
                     <th>&nbsp;</th>
                 </tr>
                 </thead>
@@ -42,7 +42,7 @@
                     </tr>
                 {% else %}
                     <tr>
-                        <td colspan="2">Todavía no se ha definido ningún medio</td>
+                        <td colspan="2">{{ 'No mediums yet'|trans }}</td>
                     </tr>
                 {% endfor %}
             </table>

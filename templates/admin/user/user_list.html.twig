@@ -1,6 +1,6 @@
 {% extends "admin/layout_dashboard.html.twig" %}
-{% set active = 'authors' %}
-{% set title = 'Authors List'|trans %}
+{% set active = 'user' %}
+{% set title = 'Users List'|trans %}
 
 {% block content %}
     <div class="row">
@@ -9,8 +9,8 @@
                 <h3>{{ title }}</h3>
                 <div class="btn-toolbar mb-2 mb-md-0">
                     <div class="btn-group mr-2">
-                        <button class="btn btn-sm btn-outline-secondary"><a href="{{ path('admin_author_add') }}"><span
-                                        data-feather="plus-circle"></span> {{ "Author Add"|trans }}</a></button>
+                        <button class="btn btn-sm btn-outline-secondary"><a href="{{ path('admin_user_add') }}"><span
+                                        data-feather="plus-circle"></span> {{ "User Add"|trans }}</a></button>
                         <button class="btn btn-sm btn-outline-secondary">Export</button>
                     </div>
                     <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
@@ -28,23 +28,21 @@
                 <tr>
                     <th>{{ "ID"|trans }}</th>
                     <th>{{ "Name"|trans }}</th>
-                    <th>{{ "Job"|trans }}</th>
-                    <th>{{ "Items"|trans }}</th>
+                    <th>{{ "Email"|trans }}</th>
                     <th>&nbsp;</th>
                 </tr>
                 </thead>
-                {% for author in authors %}
+                {% for user in users %}
                     <tr>
-                        <td><a class="badge badge-primary" href="{{ path('admin_author_edit', {'id': author.id}) }}" >{{ author.id }}</a></td>
-                        <td><a href="{{ path('admin_author_edit', {'id': author.id}) }}">{{ author.firstName }} {{ author.lastName }}</a></td>
-                        <td>{% if author.job %}{{ author.job.name }}{% endif %}</td>
-                        <td>10</td>
-                        <td><a class="text-danger" href="{{ path('admin_author_delete', {'id': author.id}) }}"><span
+                        <td><a class="badge badge-primary" href="{{ path('admin_user_edit', {'id': user.id}) }}" >{{ user.id }}</a></td>
+                        <td><a href="{{ path('admin_user_edit', {'id': user.id}) }}">{{ user.firstName }} {{ user.lastName }}</a></td>
+                        <td>{{ user.email }}</td>
+                        <td><a class="text-danger" href="{{ path('admin_user_delete', {'id': user.id}) }}"><span
                                         data-feather="trash"></span></a></td>
                     </tr>
                 {% else %}
                     <tr>
-                        <td colspan="5">{{ 'No authors yet'|trans }}</td>
+                        <td colspan="5">{{ 'No users yet'|trans }}</td>
                     </tr>
                 {% endfor %}
             </table>
