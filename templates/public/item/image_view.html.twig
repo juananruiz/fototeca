@@ -1,0 +1,15 @@
+{% extends 'public/layout.html.twig' %}
+{% set title = 'Image'|trans %}
+{% set active = 'item' %}
+
+{% block content %}
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+<div class="space-30"></div>
+<div class="blocks-main">
+    <div class="container">
+
+
+    </div>
+</div>

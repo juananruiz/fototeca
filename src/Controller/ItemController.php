@@ -117,4 +117,12 @@ class ItemController extends AbstractController
 
         return $this->redirectToRoute('admin_item_list');
     }
+
+    /**
+     * @Route("/admin/item/{id}, requirements={"id" : "\d+"}, name="admin_item_view")
+     */
+    public function view()
+    {
+
+    }
 }
