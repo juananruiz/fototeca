@@ -11,6 +11,8 @@ Birth Date: Birth Date
 Birth Locality: Birth Locality
 Birth Province: Birth Province
 Cancel: Cancel
+Close: Close
+Close window: Close window
 Collections: Collections
 Configuration: Configuration
 Contact: Contact
@@ -25,9 +27,13 @@ Edit: Edit
 Email Address: Email Address
 Email: Email
 End Date: End Date
+English: English
 First Name: First Name
+Forgot password?: Forgot password?
 Fototeca Universidad de Sevilla: Fototeca Universidad de Sevilla
+French: French
 Gender: Gender
+German: German
 Home: Home
 ID: ID
 Image: Image
@@ -54,6 +60,7 @@ Last Name: Last Name
 Login: Login
 Logout: Logout
 Log in: Log in
+Log in to your account: Log in to your account
 Log out: Log out
 Man: Man
 Medium: Medium
@@ -82,14 +89,17 @@ No items yet: No items yet.
 No jobs yet: No jobs yet.
 No series yet: No series yet.
 No users yet: No users defined yet
+Our jewels: Our jewels
 Others: Others
 Password: Password
+Password recovery: Password recovery
 Photographer: Photographer
 Photographers: Photographers
 Please enter a message: Please enter a message
 Please enter your email address: Please enter your email address
 Please enter your name: Please enter your name
 Previous: Previous
+Register: Register
 Return to list: Return to list
 Save: Save
 Search: Search
@@ -101,7 +111,9 @@ Send Message: Send Message
 Series: Series
 Serie Add: Serie Add
 Serie Delete: Serie Delete
+Spanish: Spanish
 Start Date: Start Date
+Submit: Submit
 success: SUCCESS!
 There is no record for this ID: There is no record for this ID
 Toggle navigation: Toggle navigation
@@ -117,3 +129,4 @@ warning: WARNING!
 We would love to hear from you: We would love to hear from you
 Woman: Woman
 Yes: Yes
+Your request successfully sent!: Your request successfully sent!

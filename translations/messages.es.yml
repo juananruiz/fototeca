@@ -10,6 +10,8 @@ Authors: Autores
 Authors List: Lista de Autores
 Birth Date: Fecha de nacimiento
 Cancel: Cancelar
+Close: Cerrar
+Close window: Cerrar ventana
 Collection: Colección
 Collection Edit: Editar Colección
 Collections: Colecciones
@@ -39,11 +41,15 @@ Edit: Editar
 Email Address: Correo electrónico
 Email: Correo
 End Date: Fecha Baja
+English: Inglés
 Fax: Fax
 First Name: Nombre
+Forgot password?: ¿Olvidó la contraseña?
 Fototeca Universidad de Sevilla: Fototeca Universidad de Sevilla
+French: Francés
 Get in touch!: Mantente en contacto!
 Gender: Sexo
+German: Alemán
 Home: Inicio
 ID: ID
 Image: Imagen
@@ -77,6 +83,7 @@ Location: Localización
 Login: Inicio de sesión
 Logout: Salir
 Log in: Acceder
+Log in to your account: Acceder a tu cuenta
 Log out: Salir
 Mail: Correo
 Man: Hombre
@@ -109,8 +116,10 @@ No mediums yet: Todavía no hay medios
 No series yet: Todavía no hay series
 No users yet: Todavía no hay usuarios
 No: No
+Our jewels: Nuestras joyas
 Others: Otros
 Password: Contraseña
+Password recovery: Recuperar contraseña
 People List: Lista de personas
 People: Personas
 Personal Data: Datos Personales
@@ -126,6 +135,7 @@ Please enter your email address: Por favor, introduzca su correo electrónio
 Please enter your name: Por favor, introduzca su nombre
 Previous: Previo
 Province: Provincia
+Register: Registrar
 Return to list: Volver al listado
 Save: Grabar
 Search: Buscar
@@ -138,7 +148,9 @@ Serie: Serie
 Serie Add: Añadir Serie
 Series List: Lista de Series
 Series: Series
+Spanish: Español
 Start Date: Fecha Alta
+Submit: Enviar
 success: CORRECTO
 There is no record for this ID: No hay registro para esta ID
 Toggle navigation: Mostrar/ocultar menú
@@ -156,3 +168,4 @@ warning: ATENCIÓN
 We would love to hear from you: Encantados de escucharte
 Woman: Mujer
 Yes: Sí
+Your request successfully sent!: ¡Su petición se ha enviado correctamente!
