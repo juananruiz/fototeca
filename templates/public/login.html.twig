@@ -1,0 +1,29 @@
+{% extends 'public/layout.html.twig' %}
+{% set title = 'Login'|trans %}
+{% set active = '' %}
+
+{% block content %}
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+    <div class="card bg-dark">
+        <form action="{{ path('login') }}" method="post">
+            <div class="card-header"><h4>{{ title }}</h4></div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="username">{{ 'User'|trans }}</label>
+                    <input class="form-control" type="text" id="username" name="_username" value="{{ last_username }}"/>
+                </div>
+                <div class="form-group">
+                    <label for="password">{{ 'Password'|trans }}</label>
+                    <input class="form-control" type="password" id="password" name="_password"/>
+                </div>
+                {# If you want to control the URL the user is redirected to on success #}
+                <input type="hidden" name="_target_path" value="/intranet" />
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-info">{{ 'Log in'|trans }}</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
