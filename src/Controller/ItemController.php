@@ -119,7 +119,7 @@ class ItemController extends AbstractController
     }
 
     /**
-     * @Route("/admin/item/{id}, requirements={"id" : "\d+"}, name="admin_item_view")
+     * @Route("/admin/item/{id}", requirements={"id" : "\d+"}, name="admin_item_view")
      */
     public function view()
     {

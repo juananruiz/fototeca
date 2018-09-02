@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Author\Author;
 use App\Entity\Image\Image;
 use App\Repository\AuthorRepository;
 use App\Repository\ImageRepository;
@@ -32,52 +31,47 @@ class ImageController extends AbstractController
     }
 
     /**
-     * @param $id
+     * @Route("/imagen/{id}", requirements={"id": "\d+"}, name="image_view")
+     * @param Request $request
      * @return Response
      */
-    public function view($id)
+    public function view(Request $request)
     {
+        $id = $request->get('id');
         $image = $this->repository->find($id);
 
         return $this->render('public/item/image_view.html.twig', array("image" => $image));
     }
 
     /**
+     * @Route("/admin/imagen/grabar", name="admin_image_save")
      * @param Request $request
      * @param AuthorRepository $authorRepository
      * @param ItemRepository $itemRepository
      * @param MediumRepository $mediumRepository
      * @return RedirectResponse
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
-    public function save(Request $request, AuthorRepository $authorRepository, ItemRepository $itemRepository, MediumRepository $mediumRepository)
+    public function save(Request $request, AuthorRepository $authorRepository, ItemRepository $itemRepository,
+                         MediumRepository $mediumRepository)
     {
         $data = array();
         $data['comments'] = $request->get('comments');
         $data['conservation'] = $request->get('conservation');
         $data['itemId'] = $request->get('itemId');
-        $data['item'] = $itemRepository->find($data['itemId']);
-        $data['location']= $request->get('location');
+        $data['location'] = $request->get('location');
         $data['medium'] = $mediumRepository->find($request->get('mediumId'));
         $data['author'] = $authorRepository->find($request->get('authorId'));
-
         // Editing or adding
         if ($data['id'] = $request->get('id')) {
             $image = $this->repository->find($data['id']);
-            $image->setComments($data['comments']);
-            $image->setConservation($data['conservation']);
-            $image->setLocation($data['location']);
-            $image->setMedium($data['medium']);
-            $image->setAuthor($data['author']);
             $message = "Image data has been updated"; // in case of success
-            $redirect = $this->redirectToRoute('image_edit', $data); // in case of failure
         } else {
-            $data['createdAt'] = new \DateTime();
             $image = new Image();
-            $image->setComments($data['comments']);
-            $image->setConservation($data['conservation']);
-            $image->setLocation($data['location']);
-            $image->setMedium($data['medium']);
-            $image->setAuthor($data['author']);
+            $image->setCreatedAt(new \DateTime());
+            $item = $itemRepository->find($data['itemId']);
+            $image->setItem($item);
             // Sube el fichero al directorio específico del item, cambiamos el nombre por el id del registro
             // TODO: Controlar que el campo del fichero de la imagen no vaya vacio la condicion else parece que no funciona
             /** @var FileBag $fileBag */
@@ -88,27 +82,18 @@ class ImageController extends AbstractController
             } else {
                 $fileName = null;
                 $message = "Not uploaded file";
-//                $app['session']->getFlashBag()->add('danger', $message);
+                $this->addFlash('danger', $message);
             }
             $message = "Image has been created"; // in case of success
-            $redirect = $this->redirectToRoute('image_add', array('item_id' => $data['itemId'])); // in case of failure
         }
-        // Valida los datos
-        // http://silex.sensiolabs.org/doc/providers/validator.html
-        /** @var array(ConstraintViolation) $errors */
-        $errors = $app['validator']->validate($image);
-
-        // Check for failure or success
-        if (count($errors) > 0) {
-            foreach ($errors as $error) {
-                $message = $error->getPropertyPath() . ' ' . $error->getMessage();
-                $app['session']->getFlashBag()->add('danger', $message);
-            }
-        } else {
-            $this->imageRepository->save($image);
-            $app['session']->getFlashBag()->add('success', $message);
-            $redirect = $this->redirectToRoute('item_view_admin', array('id' => $data['itemId']));
-        }
+        $image->setComments($data['comments']);
+        $image->setConservation($data['conservation']);
+        $image->setLocation($data['location']);
+        $image->setMedium($data['medium']);
+        $image->setAuthor($data['author']);
+        $this->repository->save($image);
+        $this->addFlash('success', $message);
+        $redirect = $this->redirectToRoute('admin_item_view', array('id' => $data['itemId']));
 
         return $redirect;
     }
@@ -120,7 +105,7 @@ class ImageController extends AbstractController
      */
     private function uploadFile($itemId, FileBag $fileBag)
     {
-        $itemUploadPath = $app['kernel.private_upload_dir'] . $itemId . '/';
+        $itemUploadPath = __DIR__ . '/../../var/upload/' . $itemId . '/';
         // Crea el directorio de destino si no existe
         if (!is_file($itemUploadPath) && !is_dir($itemUploadPath)) {
             mkdir($itemUploadPath);
@@ -142,17 +127,18 @@ class ImageController extends AbstractController
      */
     public function updateFile(Image $image, FileBag $fileBag)
     {
-        $privateUploadRoot = $app['kernel.private_upload_dir'];
+        $uploadPath = __DIR__ . '/../../var/upload/';
         $itemId = $image->getItem()->getId();
-        $oldFilePath = $privateUploadRoot . $itemId . '/' . $image->getFileName();
-        if (is_file($oldFilePath)) {
-            unlink($oldFilePath);
+        $actualFilePath = $uploadPath . $itemId . '/' . $image->getFileName();
+        if (is_file($actualFilePath)) {
+            unlink($actualFilePath);
         }
 
         return $this->uploadFile($itemId, $fileBag);
     }
 
     /**
+     * @Route("/admin/imagen/crear", name="admin_image_add")
      * @param Request $request
      * @param MediumRepository $mediumRepository
      * @param AuthorRepository $authorRepository
@@ -207,7 +193,7 @@ class ImageController extends AbstractController
         $id = $request->get('id');
         /** @var Image $image */
         $image = $this->repository->find($id);
-        $imagePath = __DIR__ . '/../../var/private_upload/' . $image->getItem()->getId() . '/' . $image->getFileName();
+        $imagePath = __DIR__ . '/../../var/upload/' . $image->getItem()->getId() . '/' . $image->getFileName();
         if (is_file($imagePath)) {
             unlink($imagePath);
         }
