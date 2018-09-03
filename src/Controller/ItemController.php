@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Item\Item;
+use App\Repository\AuthorRepository;
 use App\Repository\CountryRepository;
 use App\Repository\ItemRepository;
+use App\Repository\MediumRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -89,16 +91,23 @@ class ItemController extends AbstractController
     /**
      * @Route("/admin/item/editar/{id}", requirements={"id": "\d+"}, name="admin_item_edit")
      * @param CountryRepository $countryRepository
+     * @param MediumRepository $mediumRepository
+     * @param AuthorRepository $authorRepository
      * @param $id Item id
      * @return Response
      */
-    public function edit(CountryRepository $countryRepository, $id)
+    public function edit($id, CountryRepository $countryRepository, MediumRepository $mediumRepository,
+                         AuthorRepository $authorRepository)
     {
         $countries = $countryRepository->findBy(array(), array("nameEs" => "ASC"));
+        $mediums = $mediumRepository->findBy(array(), array("name" => "ASC"));
+        $authors = $authorRepository->findBy(array(), array("lastName" => "ASC"));
         $item = $this->repository->find($id);
         return $this->render('admin/item/item_edit.html.twig', array(
             "item" => $item,
-            "countries" => $countries));
+            "countries" => $countries,
+            "mediums" => $mediums,
+            "authors" => $authors));
     }
 
     /**

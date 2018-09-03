@@ -37,6 +37,7 @@ German: German
 Home: Home
 ID: ID
 Image: Image
+Image Add: Image Add
 Image Edit: Image Data Edit
 Image has been created: Image has been created.
 Image has been updated: Image has been updated.
@@ -105,6 +106,7 @@ Save: Save
 Search: Search
 Select a country: Select a country
 Select a job: Select a job
+Select file: 'Select file'
 Select item: Select item
 Select option: Select option
 Send Message: Send Message

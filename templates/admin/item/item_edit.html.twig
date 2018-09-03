@@ -36,7 +36,7 @@
                         <option value="">{{ 'Select a country'|trans }}</option>
                         {% for country in countries %}
                             <option value="{{ country.id }}"{% if item.country.id is defined and
-                            item.country.id == country.id %} selected{% endif %}>{{ country.nameEs }}</option>
+                                item.country.id == country.id %} selected{% endif %}>{{ country.nameEs }}</option>
                         {% endfor %}
                     </select>
                 </div>
@@ -45,6 +45,56 @@
                 <button type="submit" class="btn btn-primary">{{ 'Save'|trans }}</button>
                 <button type="reset" class="btn btn-danger pull-right">{{ 'Cancel'|trans }}</button>
 
+            </form>
+        </div>
+        <div class="col-lg-6">
+            <table id="datatable" class="table table-striped">
+                <thead>
+                <tr>
+                    <th>{{ 'ID'|trans }}</th>
+                    <th>{{ 'Image'|trans }}</th>
+                    <th>{{ 'Medium'|trans }}</th>
+                    <th>{{ 'Photographer'|trans }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for image in item.images %}
+                    <tr>
+                        <td>{{ image.id }}</td>
+                        <td><img src="{{ image.fileName }}" alt=""></td>
+                        <td>{{ image.medium }}</td>
+                        <td>{{ image.author.firstName }} {{ image.author.lastName }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <form class="form" method="post" action="{{ path('admin_image_add') }}">
+                <input type="hidden" name="item_id" value="{{ item.id }}">
+                <div class="form-group">
+                    <label for="comments">{{ 'Comments' }}</label>
+                    <textarea class="form-control" name="comments"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="authorId">{{ 'Photographer'|trans }}</label>
+                    <select class="form-control" name="authorId">
+                        {% for author in authors %}
+                            <option value="{{ author.id }}">{{ author.lastName }}, {{ author.firstName }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mediumId">{{ 'Medium'|trans }}</label>
+                    <select class="form-control" name="mediumId">
+                        {% for medium in mediums %}
+                            <option value="{{ medium.id }}">{{ medium.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="fileName">{{ 'Select file'|trans }}</label>
+                    <input class="form-control" type="file" name="fileName">
+                </div>
+                <button type="submit">{{ 'Image Add'|trans }}</button>
             </form>
         </div>
     </div>
