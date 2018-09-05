@@ -61,15 +61,16 @@
                 {% for image in item.images %}
                     <tr>
                         <td>{{ image.id }}</td>
-                        <td><img src="{{ image.fileName }}" alt=""></td>
-                        <td>{{ image.medium }}</td>
+                        <td><img src="__DIR__ . '/../../var/upload/' . $itemId . '/'{{ image.fileName }}" alt=""
+                                 height="50">{{ image.fileName }}</td>
+                        <td>{{ image.medium.name }}</td>
                         <td>{{ image.author.firstName }} {{ image.author.lastName }}</td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
-            <form class="form" method="post" action="{{ path('admin_image_add') }}">
-                <input type="hidden" name="item_id" value="{{ item.id }}">
+            <form class="form" method="post" enctype="multipart/form-data" action="{{ path('admin_image_save') }}">
+                <input type="hidden" name="itemId" value="{{ item.id }}">
                 <div class="form-group">
                     <label for="comments">{{ 'Comments' }}</label>
                     <textarea class="form-control" name="comments"></textarea>
@@ -91,8 +92,8 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="fileName">{{ 'Select file'|trans }}</label>
-                    <input class="form-control" type="file" name="fileName">
+                    <label for="imageFile">{{ 'Select file'|trans }}</label>
+                    <input class="form-control" type="file" name="imageFile">
                 </div>
                 <button type="submit">{{ 'Image Add'|trans }}</button>
             </form>

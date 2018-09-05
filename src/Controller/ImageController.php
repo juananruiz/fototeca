@@ -7,6 +7,7 @@ use App\Repository\AuthorRepository;
 use App\Repository\ImageRepository;
 use App\Repository\ItemRepository;
 use App\Repository\MediumRepository;
+use App\Service\FileUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File;
 use Symfony\Component\HttpFoundation\FileBag;
@@ -49,12 +50,13 @@ class ImageController extends AbstractController
      * @param AuthorRepository $authorRepository
      * @param ItemRepository $itemRepository
      * @param MediumRepository $mediumRepository
+     * @param FileUploader $fileUploader
      * @return RedirectResponse
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function save(Request $request, AuthorRepository $authorRepository, ItemRepository $itemRepository,
-                         MediumRepository $mediumRepository)
+                         MediumRepository $mediumRepository, FileUploader $fileUploader)
     {
         $data = array();
         $data['comments'] = $request->get('comments');
@@ -66,7 +68,8 @@ class ImageController extends AbstractController
         // Editing or adding
         if ($data['id'] = $request->get('id')) {
             $image = $this->repository->find($data['id']);
-            $message = "Image data has been updated"; // in case of success
+            $this->addFlash('success', "Image data has been updated");
+
         } else {
             $image = new Image();
             $image->setCreatedAt(new \DateTime());
@@ -76,15 +79,15 @@ class ImageController extends AbstractController
             // TODO: Controlar que el campo del fichero de la imagen no vaya vacio la condicion else parece que no funciona
             /** @var FileBag $fileBag */
             $fileBag = $request->files;
-            if (is_object($fileBag->get('itemImageFile'))) {
-                $fileName = $this->uploadFile($data['itemId'], $fileBag);
+            if (is_object($fileBag->get('imageFile'))) {
+                $fileName = $fileUploader->upload($data['itemId'], $fileBag->get('imageFile'));
                 $image->setFileName($fileName);
             } else {
                 $fileName = null;
-                $message = "Not uploaded file";
-                $this->addFlash('danger', $message);
+                $this->addFlash('danger', "Not uploaded file");
             }
-            $message = "Image has been created"; // in case of success
+            $this->addFlash('success', "Image has been created");
+
         }
         $image->setComments($data['comments']);
         $image->setConservation($data['conservation']);
@@ -92,8 +95,7 @@ class ImageController extends AbstractController
         $image->setMedium($data['medium']);
         $image->setAuthor($data['author']);
         $this->repository->save($image);
-        $this->addFlash('success', $message);
-        $redirect = $this->redirectToRoute('admin_item_view', array('id' => $data['itemId']));
+        $redirect = $this->redirectToRoute('admin_item_edit', array('id' => $data['itemId']));
 
         return $redirect;
     }
@@ -112,7 +114,7 @@ class ImageController extends AbstractController
             chmod($itemUploadPath, 0755);
         }
         /** @var File\UploadedFile $file */
-        $file = $fileBag->get('itemImageFile');
+        $file = $fileBag->get('imageFile');
         $fileName = uniqid('img') . '.' . $file->guessExtension();
         $file->move($itemUploadPath, $fileName);
 
@@ -150,7 +152,7 @@ class ImageController extends AbstractController
         $item = $this->repository->find($itemId);
         $mediums = $mediumRepository->findAll();
         $criteria = array('job.name' => 'Fotógrafo');
-        $order = array('lastname' => 'DESC');
+        $order = array('lastName' => 'DESC');
         $authors = $authorRepository->findBy($criteria, $order);
         return $this->render('admin/image/image_add.html.twig', array(
             "item" => $item,
