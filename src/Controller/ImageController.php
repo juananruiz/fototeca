@@ -9,7 +9,6 @@ use App\Repository\ItemRepository;
 use App\Repository\MediumRepository;
 use App\Service\FileUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\File;
 use Symfony\Component\HttpFoundation\FileBag;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -101,45 +100,6 @@ class ImageController extends AbstractController
     }
 
     /**
-     * @param integer $itemId
-     * @param FileBag $fileBag
-     * @return string
-     */
-    private function uploadFile($itemId, FileBag $fileBag)
-    {
-        $itemUploadPath = __DIR__ . '/../../var/upload/' . $itemId . '/';
-        // Crea el directorio de destino si no existe
-        if (!is_file($itemUploadPath) && !is_dir($itemUploadPath)) {
-            mkdir($itemUploadPath);
-            chmod($itemUploadPath, 0755);
-        }
-        /** @var File\UploadedFile $file */
-        $file = $fileBag->get('imageFile');
-        $fileName = uniqid('img') . '.' . $file->guessExtension();
-        $file->move($itemUploadPath, $fileName);
-
-        return $fileName;
-    }
-
-    /**
-     * Borra el fichero anterior si existe y pasa el nuevo a uploadFile
-     * @param Image $image
-     * @param FileBag $fileBag
-     * @return string
-     */
-    public function updateFile(Image $image, FileBag $fileBag)
-    {
-        $uploadPath = __DIR__ . '/../../var/upload/';
-        $itemId = $image->getItem()->getId();
-        $actualFilePath = $uploadPath . $itemId . '/' . $image->getFileName();
-        if (is_file($actualFilePath)) {
-            unlink($actualFilePath);
-        }
-
-        return $this->uploadFile($itemId, $fileBag);
-    }
-
-    /**
      * @Route("/admin/imagen/crear", name="admin_image_add")
      * @param Request $request
      * @param MediumRepository $mediumRepository
@@ -186,20 +146,18 @@ class ImageController extends AbstractController
     /**
      * @Route("/admin/image/borrar/{id}", requirements={"id": "\d+"}, name="admin_image_delete")
      * @param Request $request
+     * @param FileUploader $file
      * @return Response
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
-    public function delete(Request $request)
+    public function delete(Request $request, FileUploader $file)
     {
         $id = $request->get('id');
         /** @var Image $image */
         $image = $this->repository->find($id);
-        $imagePath = __DIR__ . '/../../var/upload/' . $image->getItem()->getId() . '/' . $image->getFileName();
-        if (is_file($imagePath)) {
-            unlink($imagePath);
-        }
         $itemId = $image->getItem()->getId();
+        $file->remove($itemId, $image->getFileName());
         $this->repository->delete($image);
         return $this->redirectToRoute('admin_item_view', array('id' => $itemId));
     }

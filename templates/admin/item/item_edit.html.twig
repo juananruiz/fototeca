@@ -51,20 +51,21 @@
             <table id="datatable" class="table table-striped">
                 <thead>
                 <tr>
-                    <th>{{ 'ID'|trans }}</th>
                     <th>{{ 'Image'|trans }}</th>
                     <th>{{ 'Medium'|trans }}</th>
                     <th>{{ 'Photographer'|trans }}</th>
+                    <th>{{ 'Actions'|trans }}</th>
                 </tr>
                 </thead>
                 <tbody>
                 {% for image in item.images %}
                     <tr>
-                        <td>{{ image.id }}</td>
                         <td><img src="__DIR__ . '/../../var/upload/' . $itemId . '/'{{ image.fileName }}" alt=""
                                  height="50">{{ image.fileName }}</td>
                         <td>{{ image.medium.name }}</td>
                         <td>{{ image.author.firstName }} {{ image.author.lastName }}</td>
+                        <td><a href="{{ path('admin_image_delete', {'id': image.id}) }}"
+                               title="{{ 'Image Delete'|trans }}"><i class="fa fa-trash"></i></a></td>
                     </tr>
                 {% endfor %}
                 </tbody>

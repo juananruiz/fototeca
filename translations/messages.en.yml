@@ -1,4 +1,5 @@
 About: About
+Actions: Actions
 Add: Add
 Administration: Administration
 Author: Author
@@ -38,12 +39,15 @@ Home: Home
 ID: ID
 Image: Image
 Image Add: Image Add
+Image data has been updated: Image data has been updated
+Image Delete: Image Delete
 Image Edit: Image Data Edit
 Image has been created: Image has been created.
 Image has been updated: Image has been updated.
 Image List: Image List
 Is Jewel: Is Jewel
 Item: Item
+Item Add: Item Add
 Item Edit: Item Edit
 Item has been created: Item has been created.
 Item has been updated: Item has been updated.

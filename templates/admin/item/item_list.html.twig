@@ -10,7 +10,7 @@
                 <div class="btn-toolbar mb-2 mb-md-0">
                     <div class="btn-group mr-2">
                         <button class="btn btn-sm btn-outline-secondary"><a href="{{ path('admin_item_add') }}"><span
-                                        data-feather="plus-circle"></span> {{ 'Add Item'|trans }}</a></button>
+                                        data-feather="plus-circle"></span> {{ 'Item Add'|trans }}</a></button>
                         <button class="btn btn-sm btn-outline-secondary">Export</button>
                     </div>
                     <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
@@ -38,14 +38,14 @@
                 {% for item in items %}
                     <tr>
                         <td><a href="{{ path('admin_item_edit', {'id': item.id}) }}"
-                               title="{{ 'Edit Item'|trans }}">{{ item.id }}</a></td>
+                               title="{{ 'Item Edit'|trans }}">{{ item.id }}</a></td>
                         <td>{{ item.name }}</td>
                         <td>{{ item.comments }}</td>
                         <td>{{ item.locality }}</td>
                         <td>{{ item.province }}</td>
                         <td>{{ item.createdAt|date('d/m/Y') }}</td>
                         <td><a href="{{ path('admin_item_edit', {'id': item.id}) }}"
-                               title="{{ 'Edit Item'|trans }}"><i
+                               title="{{ 'Item Edit'|trans }}"><i
                                         class="fa fa-pencil"></i></a>
                             · <a href="{{ path('admin_item_delete', {'id':item.id}) }}"
                                  title="{{ 'Delete Item'|trans }}"><i

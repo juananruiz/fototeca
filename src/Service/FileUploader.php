@@ -6,6 +6,9 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class FileUploader
 {
+    /**
+     * @var
+     */
     private $uploadDirectory;
 
     /**
@@ -44,16 +47,27 @@ class FileUploader
     {
         $containerDirectory = $this->uploadDirectory . '/' . $containerId;
         // Crea el directorio de destino si no existe
-        dump($containerDirectory);
         if (!is_file($containerDirectory) && !is_dir($containerDirectory)) {
             mkdir($containerDirectory);
             chmod($containerDirectory, 0755);
         }
         /** @var UploadedFile $file */
-        $fileName = md5(uniqid()) . '.' . $file->guessExtension();
-        $file->move($containerDirectory, $file);
+        $fileName = uniqid() . '.' . $file->guessExtension();
+        $file->move($containerDirectory, $fileName);
 
         return $fileName;
+    }
+
+    /**
+     * @param int $containerId
+     * @param string $fileName
+     */
+    public function remove($containerId, $fileName)
+    {
+        $filePath = $this->uploadDirectory . '/' . $containerId . '/' . $fileName;
+        if (is_file($filePath)) {
+            unlink($filePath);
+        }
     }
 }
 

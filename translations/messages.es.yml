@@ -1,4 +1,5 @@
 About: Acerca de
+Actions: Acciones
 Add: Añadir
 Address: Dirección
 Administration: Administración
@@ -55,6 +56,7 @@ ID: ID
 Image: Imagen
 Image Add: Agregar Imagen
 Image data has been updated: Se han actualizado los datos de la imagen
+Image Delete: Borrar Imagen
 Image Edit: Editar Imagen
 Image file has been update: Se ha actualizado el fichero de la imagen
 Image has been created: Se ha creado la imagen
@@ -62,6 +64,7 @@ Image List: Lista de Imágenes
 Images: Imágenes
 Is Jewel: Es Joya
 Item: Objeto
+Item Add: Agregar Item
 Item Edit: Editar Objeto
 Item has been created: Se ha creado el objeto.
 Item has been updated: Se ha actualizado el objeto
