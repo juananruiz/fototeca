@@ -1,4 +1,4 @@
-{% extends "admin/layout_admin.html.twig" %}
+{% extends "admin/layout_dashboard.html.twig" %}
 {% set title = 'New Image'|trans ~ ' - ' ~ item.name %}
 {% set active = 'images' %}
 
@@ -12,20 +12,12 @@
         <div class="col-lg-6">
             <h2>{{ title }}</h2>
 
-            <form action="{{ path('image_save') }}" method="post" name="imageForm" enctype='multipart/form-data'>
+            <form action="{{ path('admin_image_save') }}" method="post" name="imageForm" enctype='multipart/form-data'>
                 <input type="hidden" name="itemId" value="{{ item.id }}">
 
                 <div class="form-group">
-                    <label for="itemImageFile">{{ 'Select a file'|trans }}</label>
-
-                    <div class="input-group">
-                        <span class="input-group-btn">
-                            <span class="btn btn-primary btn-file">
-                                {{ 'Browse'|trans }}&hellip; <input name="itemImageFile" type="file" multiple>
-                            </span>
-                        </span>
-                        <input type="text" class="form-control" readonly>
-                    </div>
+                    <label for="imageFile">{{ 'Select file'|trans }}</label>
+                    <input class="form-control" type="file" name="imageFile">
                 </div>
 
                 <div class="form-group">
@@ -36,7 +28,7 @@
                 <div class="form-group">
                     <label for="mediumId">{{ 'Medium'|trans }}</label>
                     <select class="form-control" name="mediumId">
-                        <option value="">{{ 'Select a medium'|trans }}</option>
+                        <option value="">{{ 'Select medium'|trans }}</option>
                         {% for medium in mediums %}
                             <option value="{{ medium.id }}"{% if image.medium.id is defined and image.medium.id == medium.id %}
                             selected{% endif %}>{{ medium.name }}</option>
@@ -50,7 +42,7 @@
                         <option value="">{{ 'Select a photographer'|trans }}</option>
                         {% for photographer in photographers %}
                             <option value="{{ photographer.id }}"{% if image.photographer.id is defined and
-                            image.photographer.id == photographer.id %} selected{% endif %}>{{ photographer.firstName }}
+                                image.photographer.id == photographer.id %} selected{% endif %}>{{ photographer.firstName }}
                                 {{ photographer.lastName }}</option>
                         {% endfor %}
                     </select>

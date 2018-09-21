@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Repository\MediumRepository;
+use App\Repository\ItemRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,31 +11,18 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     /**
-     * @var MediumRepository
-     */
-    protected $repository;
-
-    /**
-     * @param MediumRepository $mediumRepository
-     */
-    function __construct(MediumRepository $mediumRepository)
-    {
-        $this->repository = $mediumRepository;
-    }
-
-    /**
      * @Route("/", name="home")
+     * @param ItemRepository $itemRepository
      * @return Response
      */
-    public function home()
+    public function home(ItemRepository $itemRepository)
     {
         $criteria = array();
         $orderBy = array('name' => 'ASC');
-
-        $pictures = $this->repository->findBy($criteria, $orderBy);
+        $items = $itemRepository->findBy($criteria, $orderBy);
 
         return $this->render('public/index.html.twig', array(
-            "pictures" => $pictures
+            "items" => $items
         ));
     }
 

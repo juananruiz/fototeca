@@ -7,5 +7,74 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Hola admin!</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">{{ "Recent Items"|trans }}</div>
+                <div class="card-body">
+                    <table id="datatable" class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>{{ 'ID'|trans }}</th>
+                            <th>{{ 'Name'|trans }}</th>
+                            <th>{{ 'Modified at'|trans }}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for item in items %}
+                            <tr>
+                                <td><a href="{{ path('admin_item_edit', {'id': item.id}) }}"
+                                       title="{{ 'Item Edit'|trans }}">{{ item.id }}</a></td>
+                                <td>{{ item.name }}</td>
+                                <td>{{ item.modifiedAt|date('d/m/Y') }}</td>
+                                <td><a href="{{ path('admin_item_edit', {'id': item.id}) }}"
+                                       title="{{ 'Item Edit'|trans }}"><i
+                                                class="fa fa-pencil"></i></a>
+                                    · <a href="{{ path('admin_item_delete', {'id':item.id}) }}"
+                                         title="{{ 'Delete Item'|trans }}"><i
+                                                class="fa fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="6">{{ 'No items yet'|trans }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div><!-- .col -->
+        <div class="col-md-6 table-responsive">
+            <table id="datatable" class="table table-striped table-sm">
+                <thead>
+                <tr>
+                    <th>{{ 'ID'|trans }}</th>
+                    <th>{{ 'Name'|trans }}</th>
+                    <th>{{ 'Description'|trans }}</th>
+                    <th>{{ 'Jewel'|trans }}</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for serie in series %}
+                    <tr>
+                        <td><a class="badge badge-primary" href="{{ path('admin_serie_edit', {'id': serie.id}) }}"
+                               title="{{ 'Edit Serie'|trans }}">{{ serie.id }}</a></td>
+                        <td>{{ serie.name }}</td>
+                        <td>{{ serie.description }}</td>
+                        <td>{{ serie.isJewel }}</td>
+                        <td><a href="{{ path('admin_serie_delete', {'id':serie.id}) }}"
+                               title="{{ 'Delete Serie'|trans }}"><span data-feather="trash"></span></a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="5">{{ 'No series yet'|trans }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div><!-- .row -->
 {% endblock %}

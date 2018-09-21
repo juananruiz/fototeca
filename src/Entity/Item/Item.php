@@ -5,8 +5,8 @@ namespace App\Entity\Item;
 use App\Entity\Author\Author;
 use App\Entity\Common\Country;
 use App\Entity\Image\Image;
-use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
@@ -38,6 +38,12 @@ class Item
      * @var \DateTime
      */
     private $createdAt;
+
+    /**
+     * @ORM\Column(type="datetime")
+     * @var \DateTime
+     */
+    private $modifiedAt;
 
     /**
      * @ORM\Column(type="string", nullable=TRUE)
@@ -170,6 +176,22 @@ class Item
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getModifiedAt()
+    {
+        return $this->modifiedAt;
+    }
+
+    /**
+     * @param \DateTime $modifiedAt
+     */
+    public function setModifiedAt($modifiedAt)
+    {
+        $this->modifiedAt = $modifiedAt;
     }
 
     /**

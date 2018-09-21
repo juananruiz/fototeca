@@ -2,7 +2,8 @@
 
 namespace App\Controller;
 
-use App\Repository\MediumRepository;
+use App\Repository\ItemRepository;
+use App\Repository\SerieRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,32 +12,22 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminHomeController extends AbstractController
 {
     /**
-     * @var MediumRepository
-     */
-    protected $repository;
-
-    /**
-     * @param MediumRepository $mediumRepository
-     */
-    function __construct(MediumRepository $mediumRepository)
-    {
-        $this->repository = $mediumRepository;
-    }
-
-    /**
      * @Route("/admin", name="admin_home")
      * @Route("/admin/", name="admin_home")
+     * @param ItemRepository $itemRepository
+     * @param SerieRepository $serieRepository
      * @return Response
      */
-    public function home()
+    public function home(ItemRepository $itemRepository, SerieRepository $serieRepository)
     {
         $criteria = array();
-        $orderBy = array('name' => 'ASC');
+        $orderBy = array('modifiedAt' => 'DESC');
+        $recentItems = $itemRepository->findBy($criteria, $orderBy);
 
-        $pictures = $this->repository->findBy($criteria, $orderBy);
-
+        $series = $serieRepository->findAll();
         return $this->render('admin/index.html.twig', array(
-            "pictures" => $pictures
+            "items" => $recentItems,
+            "series" => $series,
         ));
     }
 }

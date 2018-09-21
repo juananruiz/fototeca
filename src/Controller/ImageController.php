@@ -63,7 +63,7 @@ class ImageController extends AbstractController
         $data['itemId'] = $request->get('itemId');
         $data['location'] = $request->get('location');
         $data['medium'] = $mediumRepository->find($request->get('mediumId'));
-        $data['author'] = $authorRepository->find($request->get('authorId'));
+        $data['author'] = $authorRepository->find($request->get('photographerId'));
         // Editing or adding
         if ($data['id'] = $request->get('id')) {
             $image = $this->repository->find($data['id']);
@@ -100,18 +100,23 @@ class ImageController extends AbstractController
     }
 
     /**
-     * @Route("/admin/imagen/crear", name="admin_image_add")
+     * @Route("/admin/imagen/crear/{item_id}", requirements={"item_id": "\d+"}, name="admin_image_add")
      * @param Request $request
      * @param MediumRepository $mediumRepository
      * @param AuthorRepository $authorRepository
      * @return Response
      */
-    public function add(Request $request, MediumRepository $mediumRepository, AuthorRepository $authorRepository)
+    public function add(Request $request, ItemRepository $itemRepository, MediumRepository $mediumRepository, AuthorRepository $authorRepository)
     {
         $itemId = $request->get('item_id');
-        $item = $this->repository->find($itemId);
+        $item = $itemRepository->find($itemId);
+        if (!is_object($item)) {
+            $this->addFlash("danger", "Item not found");
+            return $this->redirectToRoute("admin_item_list");
+        }
         $mediums = $mediumRepository->findAll();
-        $criteria = array('job.name' => 'Fotógrafo');
+//        $criteria = array('job.name' => 'Fotógrafo');
+        $criteria = array();
         $order = array('lastName' => 'DESC');
         $authors = $authorRepository->findBy($criteria, $order);
         return $this->render('admin/image/image_add.html.twig', array(
