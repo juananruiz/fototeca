@@ -40,7 +40,7 @@
                         <td><a href="{{ path('admin_item_edit', {'id': item.id}) }}"
                                title="{{ 'Item Edit'|trans }}">{{ item.id }}</a></td>
                         <td>{{ item.name }}</td>
-                        <td>{{ item.comments }}</td>
+                        <td>{{ item.comments|slice(0,254) }}{% if item.comments|length > 255 %}...{% endif %}</td>
                         <td>{{ item.locality }}</td>
                         <td>{{ item.province }}</td>
                         <td>{{ item.createdAt|date('d/m/Y') }}</td>

@@ -8,7 +8,6 @@ use Symfony\Component\Validator\Mapping\ClassMetadata;
 
 
 /**
- * Class Job
  * @ORM\Entity
  */
 class Job
