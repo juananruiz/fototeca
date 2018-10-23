@@ -25,9 +25,7 @@
 
                 <div class="form-group">
                     <label for="comments">{{ 'Comments'|trans }}</label>
-                    <textarea class="form-control" name="comments">
-                        {{ item.comments }}
-                    </textarea>
+                    <textarea class="form-control" name="comments">{{ item.comments }}</textarea>
                 </div>
 
                 <div class="form-group">
@@ -72,8 +70,8 @@
                         <tbody>
                         {% for image in item.images %}
                             <tr>
-                                <td><img src="__DIR__ . '/../../var/upload/' . $itemId . '/'{{ image.fileName }}"
-                                         alt=""
+                                <td><img src="{{ path('image_show', {'id': image.id}) }}"
+                                         alt="{{ image.comment }}"
                                          height="50">{{ image.fileName }}</td>
                                 <td>{{ image.medium.name }}</td>
                                 <td>{{ image.author.firstName }} {{ image.author.lastName }}</td>

@@ -44,6 +44,16 @@ class ImageController extends AbstractController
     }
 
     /**
+     * @Route("/imagen/show/{id}", requirements={"id": "\d+"}, name="image_show")
+     */
+    public function show($id)
+    {
+        $image = $this->repository->find($id);
+        $path = __DIR__ . '/../../var/upload/' . $image->getItem()->getId() . '/' . $image->getFileName();
+        return $this->file($path);
+    }
+
+    /**
      * @Route("/admin/imagen/grabar", name="admin_image_save")
      * @param Request $request
      * @param AuthorRepository $authorRepository
@@ -63,7 +73,7 @@ class ImageController extends AbstractController
         $data['itemId'] = $request->get('itemId');
         $data['location'] = $request->get('location');
         $data['medium'] = $mediumRepository->find($request->get('mediumId'));
-        $data['author'] = $authorRepository->find($request->get('photographerId'));
+        $data['author'] = $authorRepository->find($request->get('authorId'));
         // Editing or adding
         if ($data['id'] = $request->get('id')) {
             $image = $this->repository->find($data['id']);
